@@ -2,11 +2,13 @@
 import Image from "next/image";
 import { CiMenuKebab } from "react-icons/ci";
 import { IoAdd } from "react-icons/io5";
+import birthdaycake from "../../assests/birthdaycake.png";
+import { IoGift } from "react-icons/io5";
 
 const RightRideBar = () => {
   return (
-    <div className="w-full shadow-md ">
-      <div className="bg-[#FFFFFF] w-full px-2  rounded-lg">
+    <div className="w-full  ">
+      <div className="bg-[#FFFFFF] w-full px-2 shadow-md  rounded-lg">
         <div className="flex pb-6 justify-between text-gray-400 items-center py-4 mb-4 gap-7 p-2">
           <h2>Stories</h2>
           <CiMenuKebab className="text-2xl font-semibold"></CiMenuKebab>
@@ -74,6 +76,34 @@ const RightRideBar = () => {
             <div className="mb-2">
               <p className="font-semibold">Name </p>
               <p className="text-sm text-gray-400 "> 1 hour ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      {/* birthday card */}
+
+      <div className="my-10">
+        <div className="card w-full bg-[#39f0d7] shadow-xl image-full">
+          <figure>
+            <Image
+              height={400}
+              className="opacity-40"
+              width={400}
+              src={birthdaycake}
+              alt="Shoes"
+            />
+          </figure>
+          <div className="card-body">
+            <div className=" flex justify-between items-center">
+              <IoGift className="text-2xl"></IoGift>
+              <CiMenuKebab className="text-2xl  font-bold"></CiMenuKebab>
+            </div>
+            <h2 className="card-title">Shoes!</h2>
+            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">Buy Now</button>
             </div>
           </div>
         </div>
