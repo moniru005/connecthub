@@ -1,12 +1,13 @@
-import Navbar from "@/components/shared/Navbar";
-import React from "react";
 
-const Homepage = () => {
+import React from "react";
+import HomePage from "./(withLayout)/home/page";
+
+const LandingPage = () => {
   return (
     <div>
-      <Navbar></Navbar>
+      <HomePage/>
     </div>
   );
 };
 
-export default Homepage;
+export default LandingPage;
