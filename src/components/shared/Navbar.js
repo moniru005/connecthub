@@ -6,7 +6,7 @@ import { FaRegMessage } from "react-icons/fa6";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar w-full px-3 bg-base-100">
       <div className="flex-1">
         <a className="btn btn-ghost text-xl text-red-300 font-bold">
           ConnectHUB
@@ -25,7 +25,7 @@ const Navbar = () => {
         </button>
       </div>
       <div className="flex-none gap-2">
-        <div className="form-control">
+        <div className="form-control hidden lg:block">
           <input
             type="text"
             placeholder="Search"
