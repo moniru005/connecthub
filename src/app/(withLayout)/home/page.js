@@ -11,7 +11,7 @@ const HomePage = () => {
 
         <div className="col-span-1 ">   <LeftSideBar /> </div>
         <div className=" col-span-2 bg-[#F4F4F4] "> News feed  </div>
-        <div className="colspan1 bg-[#F4F4F4]">  <RightRideBar /> </div>
+        <div className="col-span-1 bg-[#F4F4F4]">  <RightRideBar /> </div>
       </div>
     </div>
   );
