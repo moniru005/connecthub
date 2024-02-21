@@ -10,8 +10,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+<<<<<<< Updated upstream
     <html lang="en" data-theme="light">
       <body className={inter.className}>{children}</body>
+=======
+    <html lang="en">
+      <body classNameName={inter.classNameName}>{children}</body>
+>>>>>>> Stashed changes
     </html>
   );
 }
