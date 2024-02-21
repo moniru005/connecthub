@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { CiMenuKebab } from "react-icons/ci";
 import { IoAdd } from "react-icons/io5";
-import birthdaycake from "../../assests/birthdaycake.png";
+import birthdaycake from "../../assets/birthdaycake.png";
 import { IoGift } from "react-icons/io5";
 
 const RightRideBar = () => {
