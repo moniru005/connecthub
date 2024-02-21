@@ -1,12 +1,14 @@
-import RightRideBar from '@/components/RightSideBar/RightRideBar';
-import React from 'react';
+import RightRideBar from "@/components/RightSideBar/RightRideBar";
+import Navbar from "@/components/shared/Navbar";
+import React from "react";
 
-const Home = () => {
+const Homepage = () => {
   return (
     <div>
+      <Navbar></Navbar>
       <RightRideBar/>
     </div>
   );
 };
 
-export default Home;  
+export default Homepage;
