@@ -1,29 +1,24 @@
 import React from 'react';
-import { IconBase } from 'react-icons';
+import { FaSignsPost } from "react-icons/fa6";
+import LeftSideBarItem from './LeftSideBarItem';
 
 const LeftSideBar = () => {
 
     const leftSideBarData = [
-        {
-            name: 'test1',
-            icon: IconBase,
-        }, 
-        {
-            name: 'test2',
-            icon: IconBase,
-        }, 
-    ]
+        { name: 'Feed', icon: FaSignsPost, link: 'link1' },
+        { name: 'Videos', icon: FaSignsPost, link: 'link2' },
+        { name: 'Settings', icon: FaSignsPost, link: 'link3' },
+    ];
 
 
 
     return (
         <div>
-            <h2>Left Side Bar</h2>
-            {
-                leftSideBarData.map(data=>{
-                    console.log(data.name)
-                })
-            }
+            <ul>
+                {
+                    leftSideBarData.map((data, inx) => <LeftSideBarItem name={data.name} icon={data.icon} link={data.link} key={inx}></LeftSideBarItem>)
+                }
+            </ul>
         </div>
     );
 };
