@@ -1,8 +1,12 @@
-hello maruf 2nd try
+hello Ashim 4th try
+new line added by maruf
 
 ## Getting Started
+This is Rahim Badsa - 
 
 First, run the development server:
+
+Hello, I'm Monir Uddin
 
 ```bash
 npm run dev
