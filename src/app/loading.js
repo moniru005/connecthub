@@ -1,14 +1,14 @@
 import React from 'react';
 
-const LoadingPage = () => {
+const Loader = () => {
     return (
         <div>
-            <button className="btn absolute top-1/2 left-[40%]">
-                <span className="loading text-3xl loading-spinner"></span>
+            <button className="btn text-2xl text-[#3E70B3] h-screen w-screen ">
+                <span className="loading  loading-spinner"></span>
                 loading
             </button>
         </div>
     );
 };
 
-export default LoadingPage;
+export default Loader;
