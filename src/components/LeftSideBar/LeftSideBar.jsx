@@ -1,9 +1,13 @@
 import React from 'react';
+import { IconBase } from 'react-icons';
+import SideMenu from '../SideMenu/SideMenu';
 
 const LeftSideBar = () => {
+
+
     return (
         <div>
-            <h2>Left Side Bar</h2>
+           <SideMenu/>     
         </div>
     );
 };

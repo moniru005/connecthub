@@ -1,51 +1,69 @@
+import Image from "next/image";
 import React from "react";
-import { CiHeart, CiBellOn } from "react-icons/ci";
+import { FaRegBell, FaRegEnvelope, FaRegHeart } from "react-icons/fa";
+import { FaRegMessage } from "react-icons/fa6";
+import { CiSearch } from "react-icons/ci";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   return (
-    <div class="navbar bg-base-100">
-      <div class="flex-1">
-        <a class="btn btn-ghost text-xl">daisyUI</a>
+    <div className="navbar w-full px-3 bg-base-100 fixed">
+      <div className="flex-1 gap-8 items-center">
+        {/* Logo */}
+        <div className="flex flex-col items-center">
+          <Image className="h-10 w-10" src={logo} alt="" />
+          <a className="text-xl text-[#3D70B2] font-bold">ConnectHub</a>
+        </div>
 
-        <button class="btn btn-sm">
-          <CiHeart />
-        </button>
-
-        <button class="btn btn-sm">
-          <CiBellOn />
-        </button>
-        <button class="btn btn-sm">Button</button>
-        <button class="btn btn-sm">Button</button>
+        {/* Icons */}
+        <div className="text-xl">
+          <button className="btn-md text-xl">
+            <FaRegHeart/>
+          </button>
+          <button className="btn-md text-xl">
+            <FaRegBell/>
+          </button>
+          <button className="btn-md text-xl">
+            <FaRegEnvelope></FaRegEnvelope>
+          </button>
+          <button className="btn-md text-xl">
+            <FaRegMessage></FaRegMessage>
+          </button>
+        </div>
       </div>
-      <div class="flex-none gap-2">
-        <div class="form-control">
+
+      <div className="flex-none gap-2">
+        <div className=" relative form-control hidden lg:flex flex-row items-center ">
+        <CiSearch className="absolute left-1 z-20 text-xl text-slate-400"/>
           <input
             type="text"
             placeholder="Search"
-            class="input input-bordered w-24 md:w-auto"
+            className="pl-8 relative z-10 input input-bordered rounded-full focus:outline-none w-24 md:w-auto"
           />
         </div>
-        <div class="dropdown dropdown-end">
+        <div className="dropdown dropdown-end">
           <div
-            tabindex="0"
+            tabIndex={0}
             role="button"
-            class="btn btn-ghost btn-circle avatar"
+            className="btn btn-ghost btn-circle avatar"
           >
-            <div class="w-10 rounded-full">
-              <img
+            <div className="w-10 rounded-full">
+              <Image
+                width={50}
+                height={50}
                 alt="Tailwind CSS Navbar component"
                 src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
               />
             </div>
           </div>
           <ul
-            tabindex="0"
-            class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            tabIndex={0}
+            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
           >
             <li>
-              <a class="justify-between">
+              <a className="justify-between">
                 Profile
-                <span class="badge">New</span>
+                <span className="badge">New</span>
               </a>
             </li>
             <li>
