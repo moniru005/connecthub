@@ -5,13 +5,13 @@ import React from "react";
 
 const HomePage = () => {
   return (
-    <div>
-      <div><Navbar /></div>
-      <div className="w-full mx-auto p-4 bg-[#F4F4F4] px-28 grid grid-cols-4 gap-3 mt-8 ">
+    <div className="w-full px-3 ">
+      <div><Navbar/></div>
+      <div className="w-full mx-auto pt-28 bg-[#F4F4F4] px-28 grid-cols-1 lg:grid lg:grid-cols-4 gap-3  ">
 
-        <div className="col-span-1 ">   <LeftSideBar /> </div>
-        <div className=" col-span-2 bg-[#F4F4F4] "> News feed  </div>
-        <div className="colspan1 bg-[#F4F4F4]">  <RightRideBar /> </div>
+        <div className="col-span-1 hidden lg:block ">   <LeftSideBar /> </div>
+        <div className=" w-full mx-auto  lg:col-span-2 bg-[#F4F4F4] "> News feed  </div>
+        <div className="col-span-1 hidden lg:block  bg-[#F4F4F4]  ">  <RightRideBar /> </div>
       </div>
     </div>
   );
