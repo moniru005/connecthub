@@ -2,11 +2,12 @@
 import { PiNotePencil } from "react-icons/pi";
 import { IoMdPhotos } from "react-icons/io";
 import { CiVideoOn } from "react-icons/ci";
+import Image from "next/image";
 
 const CreatePostForm = () => {
   return (
     <>
-      <div className="editor mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 p-4 shadow-lg max-w-2xl">
+      <div className="editor rounded-lg mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 shadow-lg max-w-2xl">
         {/* Tabs above textbox*/}
         <div className="tabs tabs-lifted">
           <a className="tab tab-active">
@@ -110,11 +111,24 @@ const CreatePostForm = () => {
           </dialog>
         </div>
         {/* textbox/textarea */}
-        <textarea
-          className="description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none"
-          spellCheck="false"
-          placeholder="Describe everything about this post here"
-        ></textarea>
+        <div className="relative ">
+          <textarea
+            className="description md:pl-24 md:pt-12 w-full bg-white sec p-3 h-60 border border-gray-300 outline-none"
+            spellCheck="false"
+            placeholder="Describe everything about this post here"
+          ></textarea>
+          <div className="left-[5%] top-[15%] avatar absolute ">
+            <div className="w-12  rounded-full ring  ring-offset-base-100 ring-offset-2">
+              <Image
+                className="rounded-full"
+                height={50}
+                width={50}
+                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                alt="profile pic"
+              />
+            </div>
+          </div>
+        </div>
 
         {/* Icons */}
         <div className="icons flex text-gray-500 m-2">
@@ -171,11 +185,11 @@ const CreatePostForm = () => {
           </div>
         </div>
         {/* Buttons */}
-        <div className="buttons flex">
-          <div className="btn border border-gray-300 p-1 px-4 font-semibold cursor-pointer text-gray-500 ml-auto">
+        <div className="buttons flex mb-4 mr-2">
+          <div className="btn border border-gray-300 p-1 px-4 font-semibold cursor-pointer text-gray-500 ml-auto ">
             Cancel
           </div>
-          <div className="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500">
+          <div className="btn p-1 px-4 font-semibold cursor-pointer text-white ml-2 bg-[#69A2E9]">
             Post
           </div>
         </div>
