@@ -9,7 +9,7 @@ import postImage from "../../assets/crowd-concert.webp";
 const PostCard = () => {
   return (
     <div>
-      <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF] w-10/12  p-4  max-w-2xl shadow-xl">
+      <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF] w-full p-4  max-w-2xl shadow-xl">
         <div className=" w-full flex justify-between items-center  ">
           <div className="flex justify-around items-center gap-1">
             <Image
@@ -91,7 +91,7 @@ const PostCard = () => {
           </div>
         </div>
       </div>
-      <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF] w-10/12  p-4  max-w-2xl shadow-xl">
+      <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF] w-full  p-4  max-w-2xl shadow-xl">
         <div className=" w-full flex justify-between items-center  ">
           <div className="flex justify-around items-center gap-1">
             <Image
