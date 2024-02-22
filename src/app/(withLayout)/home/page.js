@@ -8,15 +8,15 @@ import React from "react";
 const HomePage = () => {
   return (
     <div className="w-full px-3 ">
-      <div><Navbar/></div>
-      <div className="w-full mx-auto pt-28 bg-[#F4F4F4] px-28 grid-cols-1 lg:grid lg:grid-cols-4 gap-3  ">
+      <div><Navbar /></div>
+      <div className="w-full  mx-auto pt-28 bg-[#F4F4F4] px-4 flex  justify-around  flex-col lg:flex-row   ">
 
-        <div className="col-span-1 hidden lg:block ">   <LeftSideBar /> </div>
-        <div className=" w-full mx-auto  lg:col-span-2 bg-[#F4F4F4] ">
-           <CreatePostForm></CreatePostForm> 
-           <PostCard/>
-            </div>
-        <div className="col-span-1 hidden lg:block  bg-[#F4F4F4]  ">  <RightRideBar /> </div>
+        <div className=" w-full lg:w-3/12  ">   <LeftSideBar /> </div>
+        <div className=" w-full lg:w-6/12 mx-auto   bg-[#F4F4F4] ">
+          <CreatePostForm></CreatePostForm>
+          <PostCard />
+        </div>
+        <div className=" w-full lg:w-3/12  bg-[#F4F4F4]  ">  <RightRideBar /> </div>
       </div>
     </div>
   );
