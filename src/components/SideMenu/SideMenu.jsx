@@ -8,8 +8,8 @@ import { GoQuestion } from "react-icons/go";
 
 export default function SideMenu() {
   return (
-    <div className="w-full px-4 ">
-      <div className="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
+    <div className="w-full ">
+      <div className="mx-auto w-full rounded-2xl bg-white p-2">
         
         <Disclosure>
           {({ open }) => (
