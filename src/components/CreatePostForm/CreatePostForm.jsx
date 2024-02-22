@@ -7,7 +7,7 @@ import Image from "next/image";
 const CreatePostForm = () => {
   return (
     <>
-      <div className="editor rounded-lg mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 shadow-lg max-w-2xl">
+      <div className="editor rounded-lg mx-auto w-full flex flex-col text-gray-800 border border-gray-300 shadow-lg max-w-2xl">
         {/* Tabs above textbox*/}
         <div className="tabs tabs-lifted">
           <a className="tab tab-active">
