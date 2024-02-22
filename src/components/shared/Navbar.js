@@ -7,21 +7,26 @@ import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   return (
-    <div className="navbar w-full px-3 bg-base-100 fixed">
+    <div className="navbar w-full z-50 px-3 bg-base-100 fixed">
       <div className="flex-1 gap-8 items-center">
         {/* Logo */}
         <div className="flex flex-col items-center">
+<<<<<<< HEAD
           <Image className="h-10 w-10" src={logo} alt="" />
           <a className="text-xl text-[#69A2E9] font-bold uppercase">ConnectHub</a>
+=======
+          <Image className="h-10 w-10" src={logo} alt="connectHub-logo" />
+          <a className=" text-sm lg:text-xl text-[#3D70B2] font-bold">ConnectHub</a>
+>>>>>>> 4f99ed3ce27ce289150f972ae290dc4c77c576c5
         </div>
 
         {/* Icons */}
         <div className="text-xl">
           <button className="btn-md text-xl">
-            <FaRegHeart/>
+            <FaRegHeart />
           </button>
           <button className="btn-md text-xl">
-            <FaRegBell/>
+            <FaRegBell />
           </button>
           <button className="btn-md text-xl">
             <FaRegEnvelope></FaRegEnvelope>
@@ -34,7 +39,7 @@ const Navbar = () => {
 
       <div className="flex-none gap-2">
         <div className=" relative form-control hidden lg:flex flex-row items-center ">
-        <CiSearch className="absolute left-1 z-20 text-xl text-slate-400"/>
+          <CiSearch className="absolute left-1 z-20 text-xl text-slate-400" />
           <input
             type="text"
             placeholder="Search"
