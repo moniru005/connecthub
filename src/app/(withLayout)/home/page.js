@@ -14,7 +14,7 @@ const HomePage = () => {
 
       <div className="w-full  mx-auto pt-28 bg-[#F4F4F4] px-4 flex  justify-around gap-2 flex-col lg:flex-row ">
         {/* left side */}
-        <div className=" w-full lg:w-3/12 lg:order-1 order-3 ">
+        <div className=" w-full lg:w-3/12 lg:order-1 order-3 mb-8">
           <LeftSideBar />
         </div>
         {/* center side  */}
