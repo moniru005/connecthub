@@ -36,13 +36,15 @@ const PostCard = () => {
             really excited about this one!
           </p>
           {/* image */}
-          <Image
-            className="rounded-lg"
-            height={280}
-            width={550}
-            alt="post-image"
-            src={postImage}
-          />
+          <div className="flex justify-center items-center w-full">
+            <Image
+              className="rounded-lg "
+              height={280}
+              width={600}
+              alt="post-image"
+              src={postImage}
+            />
+          </div>
         </div>
         {/* like count */}
         <div className=" flex justify-between mt-5 items-center ">
@@ -91,7 +93,7 @@ const PostCard = () => {
           </div>
         </div>
       </div>
-      <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF] w-full  p-4  max-w-2xl shadow-xl">
+      <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF] w-full p-4  max-w-2xl shadow-xl">
         <div className=" w-full flex justify-between items-center  ">
           <div className="flex justify-around items-center gap-1">
             <Image
@@ -118,13 +120,15 @@ const PostCard = () => {
             really excited about this one!
           </p>
           {/* image */}
-          <Image
-            className="rounded-lg"
-            height={280}
-            width={550}
-            alt="post-image"
-            src={postImage}
-          />
+          <div className="flex justify-center items-center w-full">
+            <Image
+              className="rounded-lg "
+              height={280}
+              width={600}
+              alt="post-image"
+              src={postImage}
+            />
+          </div>
         </div>
         {/* like count */}
         <div className=" flex justify-between mt-5 items-center ">
@@ -173,6 +177,8 @@ const PostCard = () => {
           </div>
         </div>
       </div>
+    
+     
     </div>
   );
 };
