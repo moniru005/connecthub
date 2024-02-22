@@ -12,7 +12,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex flex-col items-center">
           <Image className="h-10 w-10" src={logo} alt="" />
-          <a className="text-xl text-[#3D70B2] font-bold">ConnectHub</a>
+          <a className="text-xl text-[#69A2E9] font-bold uppercase">ConnectHub</a>
         </div>
 
         {/* Icons */}
