@@ -8,11 +8,11 @@ import logo from "@/assets/logo.png";
 const Navbar = () => {
   return (
     <div className="navbar w-full z-50 px-3 bg-base-100 fixed">
-      <div className="flex-1 gap-8 items-center">
+      <div className="flex-1 gap-4 lg:gap-8 items-center">
         {/* Logo */}
         <div className="flex flex-col items-center">
           <Image className="h-10 w-10" src={logo} alt="" />
-          <a className="text-xl text-[#69A2E9] font-bold uppercase">ConnectHub</a>
+          <a className="text-sm lg:text-xl text-[#69A2E9] font-bold uppercase">ConnectHub</a>
         </div>
 
         {/* Left Icons */}
@@ -41,7 +41,7 @@ const Navbar = () => {
             className="pl-8 relative z-10 input input-bordered rounded-full focus:outline-none w-24 md:w-auto"
           />
         </div>
-        <div className="dropdown dropdown-end">
+        <div className="dropdown dropdown-end pr-2">
           <div
             tabIndex={0}
             role="button"

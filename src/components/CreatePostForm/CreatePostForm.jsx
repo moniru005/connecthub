@@ -26,11 +26,12 @@ const CreatePostForm = () => {
               </h3>
 
               <div>
-                <label className="input input-bordered border-2 border-violet-200 flex items-center gap-2">
+                <label className="input border border-violet-200 flex items-center gap-2 text-sm lg:text-base focus:outline-none">
                   Album Name:-
                   <input type="text" className="grow" placeholder="Name" />
                 </label>
-                <label className="input input-bordered border-2 border-violet-200 flex items-center gap-2 my-2">
+
+                <label className="input border flex items-center gap-2 my-2 text-sm lg:text-base focus:outline-none border-violet-200">
                   Location:-
                   <input
                     type="text"
@@ -43,7 +44,7 @@ const CreatePostForm = () => {
                   type="file"
                   id="imageUpload"
                   accept="image/*"
-                  className="file-input file-input-bordered file-input-ghost border-2 border-violet-200 text-indigo-500 w-full max-w-xs"
+                  className="file-input file-input-ghost border border-violet-200 text-indigo-500 w-full text-sm lg:text-base focus:outline-none"
                 />
               </div>
 
@@ -113,7 +114,7 @@ const CreatePostForm = () => {
         {/* textbox/textarea */}
         <div className="relative ">
           <textarea
-            className="description md:pl-24 md:pt-12 w-full bg-white sec p-3 h-60 border border-gray-300 outline-none"
+            className="description lg:pl-24 md:pl-24 lg:pt-12 md:pt-12 w-full bg-white pl-20  py-12 h-60 border border-gray-300 outline-none"
             spellCheck="false"
             placeholder="Describe everything about this post here"
           ></textarea>
