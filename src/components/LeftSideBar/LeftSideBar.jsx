@@ -7,7 +7,7 @@ const LeftSideBar = () => {
 
     return (
         <div>
-           <SideMenu/>            
+           <SideMenu/>     
         </div>
     );
 };
