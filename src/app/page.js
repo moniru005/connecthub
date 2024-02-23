@@ -5,7 +5,7 @@ import HomePage from "./(withLayout)/home/page";
 
 const LandingPage = () => {
   return (
-    <div>
+    <div style={{fontFamily: "work sans"}}>
       <Login></Login>
     </div>
   );

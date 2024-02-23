@@ -54,6 +54,11 @@ const RegisterForm = ({ show, setShow }) => {
       onSubmit={handleCreateUser}
       className="mt-6 w-full flex justify-center flex-col gap-y-4 items-center"
     >
+      <div className="w-full text-center py-6">
+        <h2 className="lg:text-4xl md:text-4xl text-xl font-bold text-[#477ec1]">
+          Sign Up
+        </h2>
+      </div>
       <div className="relative">
         <FaUser className="absolute left-0 top-[10px] pl-2 text-xl text-gray-300" />
         <input

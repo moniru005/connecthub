@@ -34,9 +34,9 @@ const Login = () => {
         {/* right */}
         <div className="w-1/2 h-screen flex items-center mx-auto my-12 lg:my-0">
           <div className="w-full flex flex-col justify-center items-center">
-            <div className="w-32 h-32 rounded-full border-2 border-gray-200">
+            {/* <div className="w-32 h-32 rounded-full border-2 border-gray-200">
               <Image className="w-32 p-1.5 rounded-full" src={photo} alt="" />
-            </div>
+            </div> */}
             {/* Login Form */}
             <div>
               {show ? (
