@@ -1,13 +1,26 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import photo from "@/assets/jenna.jpg";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import logoWhite from "@/assets/logo-white.png";
+import useUser from "../Hooks/useUser";
+import { useRouter } from "next/navigation";
+import Loader from "@/app/loading";
 
 const Login = () => {
+  const {user, loading} = useUser()
   const [show, setShow] = useState(true);
+  const router = useRouter()
+  
+if(loading){
+  return <Loader></Loader>
+}
+  if(user){
+    router.push('home')
+    return
+  }
+
   return (
     <div className="relative h-screen bg-none">
       
@@ -34,9 +47,9 @@ const Login = () => {
         {/* right */}
         <div className="w-1/2 h-screen flex items-center mx-auto my-12 lg:my-0">
           <div className="w-full flex flex-col justify-center items-center">
-            <div className="w-32 h-32 rounded-full border-2 border-gray-200">
+            {/* <div className="w-32 h-32 rounded-full border-2 border-gray-200">
               <Image className="w-32 p-1.5 rounded-full" src={photo} alt="" />
-            </div>
+            </div> */}
             {/* Login Form */}
             <div>
               {show ? (
