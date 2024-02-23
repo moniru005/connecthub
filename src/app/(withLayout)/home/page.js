@@ -20,7 +20,7 @@ const HomePage = () => {
   // }
 
   if (!user) {
-    router.replace('/login');
+    router.push('/');
     return null; // or you can return a "Login" component here if you have one
   }
 
