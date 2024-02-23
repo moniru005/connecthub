@@ -6,7 +6,7 @@ import HomePage from "./(withLayout)/home/page";
 const LandingPage = () => {
   return (
     <div>
-      <HomePage></HomePage>
+      <Login></Login>
     </div>
   );
 };
