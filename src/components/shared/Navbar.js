@@ -4,8 +4,29 @@ import { FaRegBell, FaRegEnvelope, FaRegHeart } from "react-icons/fa";
 import { FaRegMessage } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
 import logo from "@/assets/logo.png";
+import useUser from "../Hooks/useUser";
+import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+  const router = useRouter()
+
+  const {logout, user} = useUser()
+
+  const handleLogout= ()=>{
+    logout()
+    .then(()=>{
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "successfully Logged Out",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+      router.push("/login");
+    })
+  }
   
   return (
     <div className="navbar w-full z-50 px-3 bg-base-100 fixed">
@@ -71,7 +92,7 @@ const Navbar = () => {
               <a>Settings</a>
             </li>
             <li>
-              <a>Logout</a>
+              <a onClick={handleLogout}>Logout</a>
             </li>
           </ul>
         </div>

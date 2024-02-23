@@ -1,13 +1,26 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import photo from "@/assets/jenna.jpg";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import logoWhite from "@/assets/logo-white.png";
+import useUser from "../Hooks/useUser";
+import { useRouter } from "next/navigation";
+import Loader from "@/app/loading";
 
 const Login = () => {
+  const {user, loading} = useUser()
   const [show, setShow] = useState(true);
+  const router = useRouter()
+  
+if(loading){
+  return <Loader></Loader>
+}
+  if(user){
+    router.push('home')
+    return
+  }
+
   return (
     <div className="relative h-screen bg-none">
       
