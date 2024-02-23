@@ -13,7 +13,7 @@ const Login = () => {
   const [show, setShow] = useState(true);
   const router = useRouter()
   
-if(loading){
+if(!loading){
   return <Loader></Loader>
 }
   if(user){
