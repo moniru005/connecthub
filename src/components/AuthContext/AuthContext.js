@@ -2,6 +2,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { Auth } from '../FirebaseConfig/config.firebase';
+// import { cookies } from 'next/headers';
 
 export const userAuth = createContext(null)
 
@@ -25,7 +26,15 @@ const AuthProvider = ({ children }) => {
 
       //Stay login
       useEffect(() => {
-            const unsubscribe = onAuthStateChanged(Auth, (currentUser) => { 
+            const unsubscribe = onAuthStateChanged(Auth, (currentUser) => {
+                  // console.log()
+                  if(currentUser){
+                        localStorage.setItem('session', `${currentUser?.email}`)
+                        setLoading(false)
+                        setUser(currentUser)
+                  }else{
+                        localStorage.removeItem('session')
+                  }
                   setUser(currentUser)
             })
 

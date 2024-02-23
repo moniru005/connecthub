@@ -2,10 +2,11 @@ import React from "react";
 import { FaLock, FaUser } from "react-icons/fa";
 import useUser from "../Hooks/useUser";
 import Swal from "sweetalert2";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
+import Loader from "@/app/loading";
 
 const RegisterForm = ({ show, setShow }) => {
-  const { createUser, updateUserProfile } = useUser();
+  const { createUser, updateUserProfile, user, loading } = useUser();
   const router = useRouter();
 
   const handleCreateUser = (e) => {
@@ -51,7 +52,13 @@ const RegisterForm = ({ show, setShow }) => {
       });
     }
   };
-
+  if(loading){
+    return <Loader></Loader>
+  }
+  if(user){
+    redirect('/home')
+    return
+  }
   return (
     <form
       onSubmit={handleCreateUser}
