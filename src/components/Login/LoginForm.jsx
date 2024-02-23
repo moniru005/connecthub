@@ -2,6 +2,8 @@
 import React from "react";
 import { FaLock, FaUser } from "react-icons/fa";
 import useUser from "../Hooks/useUser";
+import Swal from "sweetalert2";
+import { redirect } from "next/navigation";
 
 const LoginForm = ({show, setShow}) => {
   const {login} = useUser()
@@ -13,9 +15,24 @@ const LoginForm = ({show, setShow}) => {
 
      await login(email, password)
     .then((res)=>{
-      
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "successfully login",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      redirect('/home')
     })
-    .catch((err)=>console.log(err))
+    .catch((err)=>{
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: "Error while login",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    })
 
   }
 
