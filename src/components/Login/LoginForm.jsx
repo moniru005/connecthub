@@ -3,10 +3,12 @@ import React from "react";
 import { FaLock, FaUser } from "react-icons/fa";
 import useUser from "../Hooks/useUser";
 import Swal from "sweetalert2";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+
 
 const LoginForm = ({show, setShow}) => {
   const {login} = useUser()
+  const router = useRouter();
 
   const handleLogin = async(e)=>{
     e.preventDefault()
@@ -22,7 +24,7 @@ const LoginForm = ({show, setShow}) => {
         showConfirmButton: false,
         timer: 1500
       });
-      redirect('/home')
+      router.push('/home');
     })
     .catch((err)=>{
       Swal.fire({

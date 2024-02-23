@@ -1,4 +1,7 @@
+"use client"
+
 import CreatePostForm from "@/components/CreatePostForm/CreatePostForm";
+import useUser from "@/components/Hooks/useUser";
 import LeftSideBar from "@/components/LeftSideBar/LeftSideBar";
 import PostCard from "@/components/PostCard/PostCard";
 import RightRideBar from "@/components/RightSideBar/RightRideBar";
@@ -6,7 +9,9 @@ import Navbar from "@/components/shared/Navbar";
 import React from "react";
 
 const HomePage = () => {
+
   return (
+    
     <div className="w-full px-3 ">
       <div>
         <Navbar />
