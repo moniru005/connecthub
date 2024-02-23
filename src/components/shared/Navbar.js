@@ -6,6 +6,7 @@ import { CiSearch } from "react-icons/ci";
 import logo from "@/assets/logo.png";
 
 const Navbar = () => {
+  
   return (
     <div className="navbar w-full z-50 px-3 bg-base-100 fixed">
       <div className="flex-1 gap-4 lg:gap-8 items-center">
