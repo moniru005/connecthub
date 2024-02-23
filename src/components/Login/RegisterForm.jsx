@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 
 const RegisterForm = ({ show, setShow }) => {
-  const { createUser } = useUser();
+  const { createUser, updateUserProfile } = useUser();
   const router = useRouter();
 
   const handleCreateUser = (e) => {
@@ -14,10 +14,13 @@ const RegisterForm = ({ show, setShow }) => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const name = e.target.name.value;
+    const photo =
+      "https://i.ibb.co/hXQBM2X/jake-nackos-IF9-TK5-Uy-KI-unsplash.jpg";
     const confirmPassword = e.target.confirmPassword.value;
     if (password == confirmPassword) {
       createUser(email, password)
         .then((res) => {
+          updateUserProfile(name, photo);
           Swal.fire({
             position: "center",
             icon: "success",
