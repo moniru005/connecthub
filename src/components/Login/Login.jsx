@@ -11,15 +11,12 @@ import Loader from "@/app/loading";
 const Login = () => {
   const {user, loading} = useUser()
   const [show, setShow] = useState(true);
-  const router = useRouter()
+
   
-if(!loading){
-  return <Loader></Loader>
-}
-  if(user){
-    router.push('home')
-    return
-  }
+// if(!loading){
+//   return <Loader></Loader>
+// }
+
 
   return (
     <div className="relative h-screen bg-none">

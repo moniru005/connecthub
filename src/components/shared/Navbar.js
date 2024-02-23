@@ -24,7 +24,7 @@ const Navbar = () => {
         timer: 1500,
       });
 
-      router.push("/login");
+      router.push("/")
     })
   }
   

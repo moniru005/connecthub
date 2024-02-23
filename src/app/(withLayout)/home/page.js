@@ -19,10 +19,10 @@ const HomePage = () => {
   //   return <Loader />;
   // }
 
-  if (!user) {
-    router.replace('/login');
-    return null; // or you can return a "Login" component here if you have one
-  }
+  // if (!user) {
+  //   router.replace('/login');
+  //   return null; // or you can return a "Login" component here if you have one
+  // }
 
   return (
     <div className="w-full px-3">

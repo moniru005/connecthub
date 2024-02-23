@@ -52,13 +52,6 @@ const RegisterForm = ({ show, setShow }) => {
       });
     }
   };
-  if(loading){
-    return <Loader></Loader>
-  }
-  if(user){
-    redirect('/home')
-    return
-  }
   return (
     <form
       onSubmit={handleCreateUser}
