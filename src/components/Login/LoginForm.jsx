@@ -19,7 +19,7 @@ const LoginForm = ({ show, setShow }) => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "successfully login",
+          title: "Successfully Login",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -31,7 +31,7 @@ const LoginForm = ({ show, setShow }) => {
           icon: "warning",
           title: "Error while login",
           showConfirmButton: false,
-          timer: 1500,
+          timer: 3000,
         });
       });
   };
