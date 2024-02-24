@@ -22,7 +22,7 @@ export default function SideMenu() {
                 <ChevronUpIcon
                   className={`${
                     open ? "rotate-180 transform" : ""
-                  } h-5 w-5 text-purple-500`}
+                  } h-5 w-5 text-[#69A2E9]`}
                 />
               </Disclosure.Button>
 
@@ -54,7 +54,7 @@ export default function SideMenu() {
                 <ChevronUpIcon
                   className={`${
                     open ? "rotate-180 transform" : ""
-                  } h-5 w-5 text-purple-500`}
+                  } h-5 w-5 text-[#69A2E9]`}
                 />
               </Disclosure.Button>
               <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500">
@@ -83,7 +83,7 @@ export default function SideMenu() {
                 <ChevronUpIcon
                   className={`${
                     open ? "rotate-180 transform" : ""
-                  } h-5 w-5 text-purple-500`}
+                  } h-5 w-5 text-[#69A2E9]`}
                 />
               </Disclosure.Button>
               <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500">
@@ -112,7 +112,7 @@ export default function SideMenu() {
                 <ChevronUpIcon
                   className={`${
                     open ? "rotate-180 transform" : ""
-                  } h-5 w-5 text-purple-500`}
+                  } h-5 w-5 text-[#69A2E9]`}
                 />
               </Disclosure.Button>
               <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500">
