@@ -11,9 +11,7 @@ const LandingPage = () => {
   console.log(user)
   return (
     <div style={{fontFamily: "work sans"}}>
-      {
-        user? <HomePage></HomePage> : <Login></Login>
-      }
+      <Login></Login>
     </div>
   );
 };
