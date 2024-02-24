@@ -28,15 +28,30 @@ const PostCard = () => {
             </div>
           </div>
           <div>
-            <CiMenuKebab className="text-2xl text-gray-500 font-bold"></CiMenuKebab>
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="m-1">
+                <CiMenuKebab className="text-2xl text-gray-500 font-bold"></CiMenuKebab>
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a>Bookmark</a>
+                </li>
+                <li>
+                  <a>Delete</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         {/* post content */}
         <div className="mt-5">
           <p className="text-gray-400 text-sm mb-4 md:px-5">
-            Yesterday with @Karen Miller and @Marvin Stemperd at the
-            #Rock'n'Rolla concert in LA. Was totally fantastic! People were
-            really excited about this one!
+            Yesterday with @Karen Miller and @Marvin Stemperd at the #Rock n
+            Rolla concert in LA. Was totally fantastic! People were really
+            excited about this one!
           </p>
           {/* image */}
           <div className="flex justify-center items-center w-full">
@@ -119,9 +134,6 @@ const PostCard = () => {
                   </form>
                 </dialog>
               </div>
-              {/* <button>
-                <PiShareFatThin className="text-xl"></PiShareFatThin>
-              </button> */}
               <span> 2 </span>
             </h2>
           </div>
@@ -143,15 +155,30 @@ const PostCard = () => {
             </div>
           </div>
           <div>
-            <CiMenuKebab className="text-2xl text-gray-500 font-bold"></CiMenuKebab>
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="m-1">
+                <CiMenuKebab className="text-2xl text-gray-500 font-bold"></CiMenuKebab>
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a>Bookmark</a>
+                </li>
+                <li>
+                  <a>Delete</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         {/* post content */}
         <div className="mt-5">
           <p className="text-gray-400 text-sm mb-4 md:px-5">
-            Yesterday with @Karen Miller and @Marvin Stemperd at the
-            #Rock'n'Rolla concert in LA. Was totally fantastic! People were
-            really excited about this one!
+            Yesterday with @Karen Miller and @Marvin Stemperd at the #Rock
+            nRolla concert in LA. Was totally fantastic! People were really
+            excited about this one!
           </p>
           {/* image */}
           <div className="flex justify-center items-center w-full">
