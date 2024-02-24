@@ -2,7 +2,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { Auth } from '../FirebaseConfig/config.firebase';
-// import { cookies } from 'next/headers';
+import { deleteCookie, setCookie } from "cookies-next";
 
 export const userAuth = createContext(null)
 
@@ -28,14 +28,17 @@ const AuthProvider = ({ children }) => {
       useEffect(() => {
             const unsubscribe = onAuthStateChanged(Auth, (currentUser) => {
                   // console.log()
-                  if(currentUser){
-                        localStorage.setItem('session', `${currentUser?.email}`)
-                        setLoading(false)
+                  if (currentUser) {
+                        // Set a cookie called "session" with the user's email address
+                        setCookie('session', JSON.stringify(currentUser?.email));
+                        setLoading(false);
                         setUser(currentUser)
-                  }else{
-                        localStorage.removeItem('session')
-                  }
-                  setUser(currentUser)
+                      } else {
+                        // Delete the "session" cookie if there is no user
+                        destroyCookie( 'session');
+                        // return null;
+                      }
+                  
             })
 
             return unsubscribe
