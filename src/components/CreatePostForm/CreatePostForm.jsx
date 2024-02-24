@@ -3,8 +3,20 @@ import { PiNotePencil } from "react-icons/pi";
 import { IoMdPhotos } from "react-icons/io";
 import { CiVideoOn } from "react-icons/ci";
 import Image from "next/image";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
+import { useEffect, useState } from "react";
 
 const CreatePostForm = () => {
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/users")
+      .then((res) => res.json())
+      .then((data) => setUserData(data));
+  }, []);
+
+  console.log(userData);
+
   return (
     <>
       <div className="editor rounded-lg mx-auto w-full flex flex-col text-gray-800 border border-gray-300 shadow-lg max-w-2xl">

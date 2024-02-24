@@ -116,7 +116,7 @@ const PostCard = () => {
         <div className="mt-5">
           <p className="text-gray-400 text-sm mb-4">
             Yesterday with @Karen Miller and @Marvin Stemperd at the
-            #Rock'n'Rolla concert in LA. Was totally fantastic! People were
+            #Rock&apos;n&apos;Rolla concert in LA. Was totally fantastic! People were
             really excited about this one!
           </p>
           {/* image */}
