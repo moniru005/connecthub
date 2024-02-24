@@ -1,7 +1,18 @@
+"use client"
+import Loader from '@/app/loading';
+import useUser from '@/components/Hooks/useUser';
 import Navbar from '@/components/shared/Navbar';
+import Image from 'next/image';
 import React from 'react';
 
 const ProfilePage = () => {
+const {user, loading} = useUser()
+
+
+console.log(user)
+
+
+
   return (
 <>
 <Navbar></Navbar>
@@ -32,19 +43,10 @@ const ProfilePage = () => {
           <div class='relative'>
             {' '}
             <div class='w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                class='h-24 w-24'
-                viewBox='0 0 20 20'
-                fill='currentColor'>
-                {' '}
-                <path
-                  fill-rule='evenodd'
-                  d='M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z'
-                  clip-rule='evenodd'
-                />
-              </svg>{' '}
-            </div>{' '}
+              {
+                loading? <Loader></Loader>:<Image className='rounded-full' src={user?.photoURL} width={"250"} height={'100'}></Image>
+              }
+            </div>
           </div>{' '}
           <div class='space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center'>
             <button class='text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5'>
@@ -60,7 +62,9 @@ const ProfilePage = () => {
         <div class='mt-20 text-center border-b pb-12'>
           {' '}
           <h1 class='text-4xl font-medium text-gray-700'>
-            Jessica Jones
+           {
+            user?.displayName
+           }
           </h1>{' '}
           <p class='font-light text-gray-600 mt-3'>Bucharest, Romania</p>{' '}
           <p class='mt-8 text-gray-500'>
