@@ -4,6 +4,20 @@ import { IoMdPhotos } from "react-icons/io";
 import { CiVideoOn } from "react-icons/ci";
 import Image from "next/image";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
+<<<<<<< HEAD
+import { useEffect, useState } from "react";
+
+const CreatePostForm = () => {
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/users")
+      .then((res) => res.json())
+      .then((data) => setUserData(data));
+  }, []);
+
+  console.log(userData);
+=======
 import useUser from "../Hooks/useUser";
 
 const CreatePostForm = () => {
@@ -32,6 +46,7 @@ const CreatePostForm = () => {
     const  res = await axiosPublic.post(`/posts?email=${user?.email}`,post)
     console.log(res.data);
   }
+>>>>>>> 655293ff9fde136db2a5cbfcd6c3fb4579a271a4
 
   return (
     <>
