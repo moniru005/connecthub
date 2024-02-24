@@ -25,7 +25,7 @@ const RegisterForm = ({ show, setShow }) => {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "successfully Registered",
+            title: "Successfully Registered",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -41,7 +41,6 @@ const RegisterForm = ({ show, setShow }) => {
           });
         });
 
-      console.log(email);
     } else {
       Swal.fire({
         position: "center",
