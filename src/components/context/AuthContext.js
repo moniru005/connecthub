@@ -30,12 +30,12 @@ const AuthProvider = ({ children }) => {
                   // console.log()
                   if (currentUser) {
                         // Set a cookie called "session" with the user's email address
-                        setCookie('session', JSON.stringify(currentUser?.email));
+                        setCookie('session', currentUser?.email);
                         setLoading(false);
                         setUser(currentUser)
                       } else {
                         // Delete the "session" cookie if there is no user
-                        destroyCookie( 'session');
+                        deleteCookie('session');
                         // return null;
                       }
                   
