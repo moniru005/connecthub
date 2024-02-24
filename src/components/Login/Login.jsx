@@ -7,20 +7,23 @@ import logoWhite from "@/assets/logo-white.png";
 import useUser from "../Hooks/useUser";
 import { useRouter } from "next/navigation";
 import Loader from "@/app/loading";
+import HomePage from "@/app/(withLayout)/home/page";
 
 const Login = () => {
-  const {user, loading} = useUser()
+  const { user, loading } = useUser()
   const [show, setShow] = useState(true);
 
-  
-// if(!loading){
-//   return <Loader></Loader>
-// }
 
+  if(loading){
+    return <Loader></Loader>
+  }
+  if (user) {
+    return <HomePage></HomePage>
+  }
 
   return (
     <div className="relative h-screen bg-none">
-      
+
       <div className="lg:flex hidden absolute left-[45%] top-[50%] w-28 h-28 rounded-full border-8 border-white bg-[#69A2E9] p-1">
         <Image className="w-full p-1.5 rounded-full" src={logoWhite} alt="" />
       </div>
