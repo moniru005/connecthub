@@ -3,12 +3,15 @@ import React from "react";
 import HomePage from "./(withLayout)/home/page";
 import Login from "@/components/Login/Login";
 import useUser from "@/components/Hooks/useUser";
+import Loader from "./loading";
 
 const LandingPage = () => {
 
-  const {user} = useUser()
+  const {user, loading} = useUser()
 
-  console.log(user)
+  if(loading){
+    return <Loader></Loader>
+  }
   return (
     <div style={{fontFamily: "work sans"}}>
       <Login></Login>

@@ -18,17 +18,15 @@ const LoginForm = ({ show, setShow }) => {
     
 
     await login(email, password)
-      .then(async(res) => {
-        console.log(res);
-           Swal.fire({
-             position: "center",
-             icon: "warning",
-             title: "Login successfully completed",
-             showConfirmButton: false,
-             timer: 1500,
-           });
-       
-       
+      .then((res) => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Successfully Login",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        router.push("/home");
       })
       .catch((err) => {
         Swal.fire({
@@ -36,7 +34,7 @@ const LoginForm = ({ show, setShow }) => {
           icon: "warning",
           title: "Error while login",
           showConfirmButton: false,
-          timer: 1500,
+          timer: 3000,
         });
       });
   };

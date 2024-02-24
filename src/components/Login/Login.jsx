@@ -14,7 +14,7 @@ const Login = () => {
   const [show, setShow] = useState(true);
 
 
-  if(loading){
+  if(loading && user){
     return <Loader></Loader>
   }
   if (user) {

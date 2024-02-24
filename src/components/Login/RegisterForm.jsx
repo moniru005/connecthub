@@ -24,21 +24,14 @@ const RegisterForm = ({ show, setShow }) => {
       createUser(email, password)
         .then(async (res) => {
           updateUserProfile(name, photo);
-
-          const response = await axiosPublic.post("/users", data);
-          console.log(response.data);
-          if (response.data.insertedId) {
-            router.push("/home");
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "successfully Registered",
-              showConfirmButton: false,
-              timer: 1500,
-            });
-          }
-
-         
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Successfully Registered",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          router.push("/home");
         })
         .catch((err) => {
           Swal.fire({
@@ -50,7 +43,6 @@ const RegisterForm = ({ show, setShow }) => {
           });
         });
 
-      console.log(email);
     } else {
       Swal.fire({
         position: "center",
