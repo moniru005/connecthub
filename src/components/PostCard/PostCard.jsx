@@ -5,12 +5,15 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaRegCommentDots } from "react-icons/fa";
 import { PiShareFatThin } from "react-icons/pi";
 import postImage from "../../assets/crowd-concert.webp";
+import { useState } from "react";
 
 const PostCard = () => {
+  const [show, setShow] = useState(false);
+  const [show2, setShow2] = useState(false);
   return (
     <div>
-      <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF] w-full p-4  max-w-2xl shadow-xl">
-        <div className=" w-full flex justify-between items-center  ">
+      <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF]  w-full p-4  max-w-2xl shadow-xl">
+        <div className=" w-full flex justify-between items-center md:px-5  ">
           <div className="flex justify-around items-center gap-1">
             <Image
               width={42}
@@ -30,7 +33,7 @@ const PostCard = () => {
         </div>
         {/* post content */}
         <div className="mt-5">
-          <p className="text-gray-400 text-sm mb-4">
+          <p className="text-gray-400 text-sm mb-4 md:px-5">
             Yesterday with @Karen Miller and @Marvin Stemperd at the
             #Rock'n'Rolla concert in LA. Was totally fantastic! People were
             really excited about this one!
@@ -47,7 +50,7 @@ const PostCard = () => {
           </div>
         </div>
         {/* like count */}
-        <div className=" flex justify-between mt-5 items-center ">
+        <div className=" flex justify-between mt-5 items-center md:px-5 ">
           <div className="flex justify-between gap-2 items-center ">
             <div className="flex justify-around items-center">
               <Image
@@ -80,21 +83,52 @@ const PostCard = () => {
           </div>
           <div className="flex justify-center items-center gap-4">
             <h2 className="flex justify-center items-center gap-1">
-              <FaRegHeart className="text-xl"></FaRegHeart> <span> 23 </span>
+              <button onClick={() => setShow2(!show2)}>
+                {show2 ? (
+                  <FaRegHeart className="text-xl text-red-700"></FaRegHeart>
+                ) : (
+                  <FaRegHeart className="text-xl"></FaRegHeart>
+                )}
+              </button>{" "}
+              <span> 23 </span>
             </h2>
             <h2 className="flex justify-center items-center gap-1">
-              <FaRegCommentDots className="text-xl"></FaRegCommentDots>{" "}
+              <FaRegCommentDots className="text-xl "></FaRegCommentDots>{" "}
               <span> 7 </span>
             </h2>
             <h2 className="flex justify-center items-center gap-1">
-              <PiShareFatThin className="text-xl"></PiShareFatThin>{" "}
+              <div>
+                {/* Open the modal using document.getElementById('ID').showModal() method */}
+                <button
+                  className=""
+                  onClick={() =>
+                    document.getElementById("my_modal_3").showModal()
+                  }
+                >
+                  <PiShareFatThin className="text-xl text-violet-500"></PiShareFatThin>
+                </button>
+                <dialog id="my_modal_3" className="modal">
+                  <div className="modal-box">
+                    <h3 className="font-bold text-lg">Successfully Shared!</h3>
+                    <p className="py-4">
+                      Press ESC key or click outside to close
+                    </p>
+                  </div>
+                  <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                  </form>
+                </dialog>
+              </div>
+              {/* <button>
+                <PiShareFatThin className="text-xl"></PiShareFatThin>
+              </button> */}
               <span> 2 </span>
             </h2>
           </div>
         </div>
       </div>
-      <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF] w-full p-4  max-w-2xl shadow-xl">
-        <div className=" w-full flex justify-between items-center  ">
+      <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF] w-full p-4 max-w-2xl shadow-xl">
+        <div className=" w-full flex justify-between items-center md:px-4 ">
           <div className="flex justify-around items-center gap-1">
             <Image
               width={42}
@@ -114,7 +148,7 @@ const PostCard = () => {
         </div>
         {/* post content */}
         <div className="mt-5">
-          <p className="text-gray-400 text-sm mb-4">
+          <p className="text-gray-400 text-sm mb-4 md:px-5">
             Yesterday with @Karen Miller and @Marvin Stemperd at the
             #Rock'n'Rolla concert in LA. Was totally fantastic! People were
             really excited about this one!
@@ -131,7 +165,7 @@ const PostCard = () => {
           </div>
         </div>
         {/* like count */}
-        <div className=" flex justify-between mt-5 items-center ">
+        <div className=" flex justify-between mt-5 items-center md:px-5">
           <div className="flex justify-between gap-2 items-center ">
             <div className="flex justify-around items-center">
               <Image
@@ -164,21 +198,34 @@ const PostCard = () => {
           </div>
           <div className="flex justify-center items-center gap-4">
             <h2 className="flex justify-center items-center gap-1">
-              <FaRegHeart className="text-xl"></FaRegHeart> <span> 23 </span>
+              <button onClick={() => setShow(!show)}>
+                {show ? (
+                  <FaRegHeart className="text-xl text-red-700"></FaRegHeart>
+                ) : (
+                  <FaRegHeart className="text-xl"></FaRegHeart>
+                )}
+              </button>
+              <span> 23 </span>
             </h2>
             <h2 className="flex justify-center items-center gap-1">
               <FaRegCommentDots className="text-xl"></FaRegCommentDots>{" "}
               <span> 7 </span>
             </h2>
             <h2 className="flex justify-center items-center gap-1">
-              <PiShareFatThin className="text-xl"></PiShareFatThin>{" "}
+              <button
+                onClick={() =>
+                  document.getElementById("my_modal_3").showModal()
+                }
+              >
+                {" "}
+                <PiShareFatThin className="text-xl text-violet-500"></PiShareFatThin>
+              </button>
+
               <span> 2 </span>
             </h2>
           </div>
         </div>
       </div>
-    
-     
     </div>
   );
 };
