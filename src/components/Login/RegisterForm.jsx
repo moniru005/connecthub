@@ -43,9 +43,8 @@ const RegisterForm = ({ show, setShow }) => {
             updateUserProfile(name, image);
 
             const userData = {
-              name,
               email,
-              password,
+              name,
               image,
             };
 
@@ -61,15 +60,14 @@ const RegisterForm = ({ show, setShow }) => {
                 timer: 1500,
               });
               router.push("/home");
-            }
-            else{
-                Swal.fire({
-                  position: "center",
-                  icon: "success",
-                  title: "Try again",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
+            } else {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Try again",
+                showConfirmButton: false,
+                timer: 1500,
+              });
             }
           })
           .catch((err) => {
@@ -134,6 +132,7 @@ const RegisterForm = ({ show, setShow }) => {
         <input
           className="w-96 border rounded py-2 pl-8 pr-2"
           type="file"
+          accept="image/*"
           name="image"
           placeholder="Add your image"
         />
