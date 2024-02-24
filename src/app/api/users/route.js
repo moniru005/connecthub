@@ -37,17 +37,13 @@ export const GET = async (req, res) => {
         await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
-   
-
         const result = await userCollection.find().toArray()
-        // const result = 'data from backend'
         return NextResponse.json(result)
 
 
     } finally {
-        // Ensures that the client will close when you finish/error
-        // await client.close();
+     
     }
 
 }
-// run().catch(console.dir);
+

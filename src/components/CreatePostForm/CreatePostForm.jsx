@@ -4,6 +4,7 @@ import { IoMdPhotos } from "react-icons/io";
 import { CiVideoOn } from "react-icons/ci";
 import Image from "next/image";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 
 const CreatePostForm = () => {
@@ -16,6 +17,36 @@ const CreatePostForm = () => {
   }, []);
 
   console.log(userData);
+=======
+import useUser from "../Hooks/useUser";
+
+const CreatePostForm = () => {
+
+  const axiosPublic = useAxiosPublic();
+
+  const {user} = useUser();
+  // console.log(user?.photoURL);
+
+
+
+  const handleSubmitPost = async (e)=> {
+    e.preventDefault()
+    console.log("clicked");
+    const postDescription = e.target.postDescription.value;
+    console.log(postDescription);
+    const post = {
+      postDescription,
+      userImage: user?.photoURL,
+      like: 0,
+      comment: 0,
+      share: 0,
+    };
+    console.log(post);
+
+    const  res = await axiosPublic.post(`/posts?email=${user?.email}`,post)
+    console.log(res.data);
+  }
+>>>>>>> 655293ff9fde136db2a5cbfcd6c3fb4579a271a4
 
   return (
     <>
@@ -63,8 +94,9 @@ const CreatePostForm = () => {
               <div className="modal-action">
                 <form method="dialog">
                   {/* if there is a button in form, it will close the modal */}
+                  {/* <button type="button" class="btn btn-outline-primary">submit</button> */}
                   <button className="btn  bg-indigo-500 text-white">
-                    Close
+                    Submit
                   </button>
                 </form>
               </div>
@@ -123,89 +155,96 @@ const CreatePostForm = () => {
             </div>
           </dialog>
         </div>
-        {/* textbox/textarea */}
-        <div className="relative ">
-          <textarea
-            className="description lg:pl-24 md:pl-24 lg:pt-12 md:pt-12 w-full bg-white pl-20  py-12 h-60 border border-gray-300 outline-none"
-            spellCheck="false"
-            placeholder="Describe everything about this post here"
-          ></textarea>
-          <div className="left-[5%] top-[15%] avatar absolute ">
-            <div className="w-12  rounded-full ring  ring-offset-base-100 ring-offset-2">
-              <Image
-                className="rounded-full"
-                height={50}
-                width={50}
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                alt="profile pic"
-              />
+        <form onSubmit={handleSubmitPost}>
+          {/* textbox/textarea */}
+          <div className="relative ">
+            {/* <form onSubmit={handleSubmitPost}> */}
+            <textarea
+              className="description lg:pl-24 md:pl-24 lg:pt-12 md:pt-12 w-full bg-white pl-20  py-12 h-60 border border-gray-300 outline-none"
+              spellCheck="false"
+              name="postDescription"
+              placeholder="Describe everything about this post here"
+            ></textarea>
+            {/* </form> */}
+            <div className="left-[5%] top-[15%] avatar absolute ">
+              <div className="w-12  rounded-full ring  ring-offset-base-100 ring-offset-2">
+                <Image
+                  className="rounded-full"
+                  height={50}
+                  width={50}
+                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  alt="profile pic"
+                />
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Icons */}
-        <div className="icons flex text-gray-500 m-2">
-          <svg
-            className="mr-2 cursor-pointer hover:text-gray-700 border rounded-full p-1 h-7"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-            />
-          </svg>
-          <svg
-            className="mr-2 cursor-pointer hover:text-gray-700 border rounded-full p-1 h-7"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          <svg
-            className="mr-2 cursor-pointer hover:text-gray-700 border rounded-full p-1 h-7"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
-            />
-          </svg>
-          <div className="count ml-auto text-gray-400 text-xs font-semibold">
-            0/300
+          {/* Icons */}
+          <div className="icons flex text-gray-500 m-2">
+            <svg
+              className="mr-2 cursor-pointer hover:text-gray-700 border rounded-full p-1 h-7"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+            <svg
+              className="mr-2 cursor-pointer hover:text-gray-700 border rounded-full p-1 h-7"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <svg
+              className="mr-2 cursor-pointer hover:text-gray-700 border rounded-full p-1 h-7"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
+              />
+            </svg>
+            <div className="count ml-auto text-gray-400 text-xs font-semibold">
+              0/300
+            </div>
           </div>
-        </div>
-        {/* Buttons */}
-        <div className="buttons flex mb-4 mr-2">
-          <div className="btn border border-gray-300 p-1 px-4 font-semibold cursor-pointer text-gray-500 ml-auto ">
-            Cancel
+          {/* Buttons */}
+          <div className="buttons flex mb-4 mr-2">
+            <div className="btn border border-gray-300 p-1 px-4 font-semibold cursor-pointer text-gray-500 ml-auto ">
+              Cancel
+            </div>
+            <button
+              type="submit"
+              className="btn p-1 px-4 font-semibold cursor-pointer text-white ml-2 bg-[#69A2E9]"
+            >
+              Post
+            </button>
           </div>
-          <div className="btn p-1 px-4 font-semibold cursor-pointer text-white ml-2 bg-[#69A2E9]">
-            Post
-          </div>
-        </div>
+        </form>
       </div>
     </>
   );
