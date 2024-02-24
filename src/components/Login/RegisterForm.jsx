@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { redirect, useRouter } from "next/navigation";
 import Loader from "@/app/loading";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
+import axios from "axios";
 
 const api_key = "2ada4fdae6c29ea9b5ef757d310870c7";
 console.log(api_key);

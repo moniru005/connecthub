@@ -38,7 +38,6 @@ export const GET = async (req, res) => {
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
         const result = await userCollection.find().toArray()
-        // const result = 'data from backend'
         return NextResponse.json(result)
 
 
