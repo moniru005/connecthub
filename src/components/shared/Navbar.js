@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import React from "react";
 import { FaRegBell, FaRegEnvelope, FaRegHeart } from "react-icons/fa";
@@ -23,8 +24,9 @@ const Navbar = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-
-      router.push("/login");
+      
+      router.push("/login")
+      location.reload()
     })
   }
   

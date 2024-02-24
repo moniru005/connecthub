@@ -13,17 +13,22 @@ const LoginForm = ({ show, setShow }) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const data = {email,password}
+
+    
 
     await login(email, password)
-      .then((res) => {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "successfully login",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        router.push("/home");
+      .then(async(res) => {
+        console.log(res);
+           Swal.fire({
+             position: "center",
+             icon: "warning",
+             title: "Login successfully completed",
+             showConfirmButton: false,
+             timer: 1500,
+           });
+       
+       
       })
       .catch((err) => {
         Swal.fire({
