@@ -24,8 +24,9 @@ const Navbar = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-
-      router.push("/")
+      
+      router.push("/login")
+      location.reload()
     })
   }
   
