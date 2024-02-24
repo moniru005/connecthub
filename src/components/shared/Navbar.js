@@ -14,6 +14,8 @@ const Navbar = () => {
 
   const {logout, user} = useUser()
 
+  // console.log(user?.photoURL)
+
   const handleLogout= ()=>{
     logout()
     .then(()=>{
@@ -72,12 +74,18 @@ const Navbar = () => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
+              {user?<Image
+                width={50}
+                height={50}
+                alt="Tailwind CSS Navbar component"
+                src={user?.photoURL}
+              />:
               <Image
                 width={50}
                 height={50}
                 alt="Tailwind CSS Navbar component"
                 src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
+              />}
             </div>
           </div>
           <ul
