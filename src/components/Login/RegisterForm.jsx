@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { redirect, useRouter } from "next/navigation";
 import Loader from "@/app/loading";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
+import axios from "axios";
 
 const RegisterForm = ({ show, setShow }) => {
   const { createUser, updateUserProfile, user, loading } = useUser();
@@ -22,8 +23,22 @@ const RegisterForm = ({ show, setShow }) => {
     const confirmPassword = e.target.confirmPassword.value;
     if (password == confirmPassword) {
       createUser(email, password)
+
+
         .then(async (res) => {
           updateUserProfile(name, photo);
+
+
+          axios.post('http://localhost:3000/api/users')
+          .then(res=>{
+            console.log(res)
+          })
+          .catch(err=>{
+            console.log(err)
+          })
+
+
+
           Swal.fire({
             position: "center",
             icon: "success",

@@ -40,7 +40,6 @@ export const GET = async (req, res) => {
    
 
         const result = await userCollection.find().toArray()
-        // const result = 'data from backend'
         return NextResponse.json(result)
 
 

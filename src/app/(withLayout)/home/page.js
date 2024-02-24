@@ -1,4 +1,5 @@
 
+import CommentForm from "@/components/CommentForm/CommentForm";
 import CreatePostForm from "@/components/CreatePostForm/CreatePostForm";
 import useUser from "@/components/Hooks/useUser";
 import LeftSideBar from "@/components/LeftSideBar/LeftSideBar";
