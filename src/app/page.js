@@ -9,12 +9,14 @@ const LandingPage = () => {
 
   const {user, loading} = useUser()
 
-  if(loading){
+  if(loading && user){
     return <Loader></Loader>
   }
   return (
     <div style={{fontFamily: "work sans"}}>
-      <Login></Login>
+      {
+        user? <HomePage></HomePage> : <Login></Login>
+      }
     </div>
   );
 };
