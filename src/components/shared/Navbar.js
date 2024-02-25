@@ -8,11 +8,14 @@ import logo from "@/assets/logo.png";
 import useUser from "../Hooks/useUser";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
+import Link from "next/link";
 
 const Navbar = () => {
   const router = useRouter()
 
   const {logout, user} = useUser()
+
+  // console.log(user?.photoURL)
 
   const handleLogout= ()=>{
     logout()
@@ -72,12 +75,18 @@ const Navbar = () => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
+              {user?<Image
+                width={50}
+                height={50}
+                alt="Tailwind CSS Navbar component"
+                src={user?.photoURL}
+              />:
               <Image
                 width={50}
                 height={50}
                 alt="Tailwind CSS Navbar component"
                 src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
+              />}
             </div>
           </div>
           <ul
@@ -85,10 +94,10 @@ const Navbar = () => {
             className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
           >
             <li>
-              <a className="justify-between">
+              <Link href={'/profile'} className="justify-between">
                 Profile
                 <span className="badge">New</span>
-              </a>
+              </Link>
             </li>
             <li>
               <a>Settings</a>
