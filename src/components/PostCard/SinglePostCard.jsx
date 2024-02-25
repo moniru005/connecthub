@@ -7,9 +7,11 @@ import { FaRegCommentDots } from "react-icons/fa";
 import { PiShareFatThin } from "react-icons/pi";
 import postImage from "../../assets/crowd-concert.webp";
 
-const SinglePostCard = () => {
+const SinglePostCard = ({post}) => {
       const [show, setShow] = useState(false);
       const [show2, setShow2] = useState(false);
+
+      console.log(post)
       return (
             <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF]  w-full p-4  max-w-2xl shadow-xl">
                   <div className=" w-full flex justify-between items-center md:px-5  ">
