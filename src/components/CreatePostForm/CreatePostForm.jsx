@@ -23,7 +23,7 @@ const CreatePostForm = () => {
   const axiosPublic = useAxiosPublic();
 
   const { user } = useUser();
-  // console.log(user?.photoURL);
+  // console.log(user);
 
   const handleSubmitPost = async (e) => {
     e.preventDefault();
@@ -31,8 +31,83 @@ const CreatePostForm = () => {
     const postDescription = e.target.postDescription.value;
     // console.log(postDescription);
 
-    const  res = await axiosPublic.post(`/posts?email=${user?.email}`,post)
-    console.log(res.data);
+    if(image){
+       const imageFile = { image: image };
+       console.log(imageFile);
+       const res = await axiosPublic.post(hosting_api, imageFile, {
+         headers: {
+           "content-type": "multipart/form-data",
+         },
+       });
+
+       console.log(res?.data);
+
+       if(res.data?.success){
+       
+        console.log(res.data.success);
+        console.log(res.data.data.display_url);
+
+        const postDetails = {
+          authorName: user?.displayName,
+          authorEmail: user?.email,
+          authorImage: user?.photoURL,
+          postDescription: postDescription || "",
+          albumName: album,
+          Location: location,
+          date: new Date(),
+          postImage: res.data?.data?.display_url || "",
+        };
+
+        console.log(postDetails);
+
+        const result = await axiosPublic.post(`/posts?email=${user?.email}`, postDetails);
+        console.log(result.data);
+        if(result.data.insertedId){
+          toast.success("post success")
+          e.target.reset()
+        }
+        else{
+          toast.error("something wrong")
+        }
+
+       }
+    }
+
+    else{
+       const postDetails = {
+         authorName: user?.displayName,
+         authorEmail: user?.email,
+         authorImage: user?.photoURL,
+         postDescription: postDescription || "",
+         albumName: album,
+         Location: location,
+         date: new Date(),
+         postImage: "",
+       };
+
+       console.log(postDetails);
+
+       const result = await axiosPublic.post(
+         `/posts?email=${user?.email}`,
+         postDetails
+       );
+       console.log(result.data);
+       if (result.data.insertedId) {
+         toast.success("post success");
+         e.target.reset()
+       } else {
+         toast.error("something wrong");
+       }
+
+    }
+
+    // console.log(hostedImage);
+
+
+
+
+    // const  res = await axiosPublic.post(`/posts?email=${user?.email}`,post)
+    // console.log(res.data);
   }
 
   return (
@@ -90,7 +165,7 @@ const CreatePostForm = () => {
                   <button
                    
                     type="button"
-                    class="btn bg-indigo-500 text-white "
+                    className="btn bg-indigo-500 text-white "
                   >
                     Submit
                   </button>
