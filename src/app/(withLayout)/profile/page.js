@@ -44,7 +44,7 @@ const ProfilePage = () => {
                 ) : (
                   <Image
                     alt={user?.displayName}
-                    classNameName='rounded-full'
+                    className='rounded-full'
                     src={user?.photoURL}
                     width={'250'}
                     height={'100'}></Image>
