@@ -175,17 +175,10 @@ const PostCard = () => {
         </div>
         {/* post content */}
         <div className="mt-5">
-<<<<<<< HEAD
-          <p className="text-gray-400 text-sm mb-4">
-            Yesterday with @Karen Miller and @Marvin Stemperd at the
-            #Rock&apos;n&apos;Rolla concert in LA. Was totally fantastic! People were
-            really excited about this one!
-=======
           <p className="text-gray-400 text-sm mb-4 md:px-5">
             Yesterday with @Karen Miller and @Marvin Stemperd at the #Rock
             nRolla concert in LA. Was totally fantastic! People were really
             excited about this one!
->>>>>>> 655293ff9fde136db2a5cbfcd6c3fb4579a271a4
           </p>
           {/* image */}
           <div className="flex justify-center items-center w-full">
