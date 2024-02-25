@@ -21,11 +21,11 @@ const SinglePostCard = ({post}) => {
                                     height={42}
                                     className="rounded-full p-1 w-12 h-12 "
                                     alt="Tailwind CSS Navbar component"
-                                    src={post.authorImage}
+                                    src={post?.authorImage}
                               />
                               <div>
-                                    <h2 className=" font-semibold text-sm  "> {post.authorName} </h2>
-                                    <p className="text-sm text-gray-400 "> {post.date} </p>
+                                    <h2 className=" font-semibold text-sm  "> {post?.authorName} </h2>
+                                    <p className="text-sm text-gray-400 "> {post?.date} </p>
                               </div>
                         </div>
                         <div>
@@ -50,10 +50,12 @@ const SinglePostCard = ({post}) => {
                   {/* post content */}
                   <div className="mt-5">
                         <p className="text-gray-400 text-sm mb-4 md:px-5">
-                              {post.postDescription}
+                              {post?.postDescription}
                         </p>
                         {/* image */}
-                        <div className="flex justify-center items-center w-full">
+                        {
+                              post?.postImage &&
+                              <div className="flex justify-center items-center w-full">
                               <Image
                                     className="rounded-lg max-h-[200px] lg:max-h-[350px] w-[600px]"
                                     height={280}
@@ -62,6 +64,7 @@ const SinglePostCard = ({post}) => {
                                     src={post.postImage}
                               />
                         </div>
+                        }
                   </div>
                   {/* like count */}
                   <div className=" flex justify-between mt-5 items-center md:px-5 ">
