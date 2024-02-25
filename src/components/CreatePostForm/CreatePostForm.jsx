@@ -31,19 +31,18 @@ const CreatePostForm = () => {
     const postDescription = e.target.postDescription.value;
     // console.log(postDescription);
 
-    if(image){
-       const imageFile = { image: image };
-       console.log(imageFile);
-       const res = await axiosPublic.post(hosting_api, imageFile, {
-         headers: {
-           "content-type": "multipart/form-data",
-         },
-       });
+    if (image) {
+      const imageFile = { image: image };
+      console.log(imageFile);
+      const res = await axiosPublic.post(hosting_api, imageFile, {
+        headers: {
+          "content-type": "multipart/form-data",
+        },
+      });
 
-       console.log(res?.data);
+      console.log(res?.data);
 
-       if(res.data?.success){
-       
+      if (res.data?.success) {
         console.log(res.data.success);
         console.log(res.data.data.display_url);
 
@@ -60,55 +59,50 @@ const CreatePostForm = () => {
 
         console.log(postDetails);
 
-        const result = await axiosPublic.post(`/posts?email=${user?.email}`, postDetails);
+        const result = await axiosPublic.post(
+          `/posts?email=${user?.email}`,
+          postDetails
+        );
         console.log(result.data);
-        if(result.data.insertedId){
-          toast.success("post success")
-          e.target.reset()
+        if (result.data.insertedId) {
+          toast.success("post success");
+          e.target.reset();
+        } else {
+          toast.error("something wrong");
         }
-        else{
-          toast.error("something wrong")
-        }
+      }
+    } else {
+      const postDetails = {
+        authorName: user?.displayName,
+        authorEmail: user?.email,
+        authorImage: user?.photoURL,
+        postDescription: postDescription || "",
+        albumName: album,
+        Location: location,
+        date: new Date(),
+        postImage: "",
+      };
 
-       }
-    }
+      console.log(postDetails);
 
-    else{
-       const postDetails = {
-         authorName: user?.displayName,
-         authorEmail: user?.email,
-         authorImage: user?.photoURL,
-         postDescription: postDescription || "",
-         albumName: album,
-         Location: location,
-         date: new Date(),
-         postImage: "",
-       };
-
-       console.log(postDetails);
-
-       const result = await axiosPublic.post(
-         `/posts?email=${user?.email}`,
-         postDetails
-       );
-       console.log(result.data);
-       if (result.data.insertedId) {
-         toast.success("post success");
-         e.target.reset()
-       } else {
-         toast.error("something wrong");
-       }
-
+      const result = await axiosPublic.post(
+        `/posts?email=${user?.email}`,
+        postDetails
+      );
+      console.log(result.data);
+      if (result.data.insertedId) {
+        toast.success("post success");
+        e.target.reset();
+      } else {
+        toast.error("something wrong");
+      }
     }
 
     // console.log(hostedImage);
 
-
-
-
     // const  res = await axiosPublic.post(`/posts?email=${user?.email}`,post)
     // console.log(res.data);
-  }
+  };
 
   return (
     <>
@@ -163,7 +157,6 @@ const CreatePostForm = () => {
               <div className="modal-action justify-between">
                 <div className="flex h-full justify-start items-center ">
                   <button
-                   
                     type="button"
                     className="btn bg-indigo-500 text-white "
                   >
@@ -178,7 +171,8 @@ const CreatePostForm = () => {
               </div>
             </div>
           </dialog>
-          <a className="tab">
+          {/* Following commented code is for video post ------ */}
+          {/* <a className="tab">
             <CiVideoOn />
             <span
               className="pl-1"
@@ -186,8 +180,8 @@ const CreatePostForm = () => {
             >
               Video
             </span>
-          </a>
-          <dialog id="my_modal_2" className="modal">
+          </a> */}
+          {/* <dialog id="my_modal_2" className="modal">
             <div className="modal-box">
               <h3 className="font-bold text-lg text-center mb-2">
                 Add Your Video
@@ -206,11 +200,6 @@ const CreatePostForm = () => {
                     placeholder="Video Location"
                   />
                 </label>
-                {/* 
-                <input
-                  type="file"
-                  className="file-input file-input-bordered file-input-accent w-full max-w-xs"
-                /> */}
 
                 <input
                   type="file"
@@ -222,14 +211,13 @@ const CreatePostForm = () => {
 
               <div className="modal-action">
                 <form method="dialog">
-                  {/* if there is a button in form, it will close the modal */}
                   <button className="btn bg-indigo-500 text-white">
                     Close
                   </button>
                 </form>
               </div>
             </div>
-          </dialog>
+          </dialog> */}
         </div>
         <form onSubmit={handleSubmitPost}>
           {/* textbox/textarea */}
@@ -244,15 +232,13 @@ const CreatePostForm = () => {
             {/* </form> */}
             <div className="left-[5%] top-[15%] avatar absolute ">
               <div className="w-12  rounded-full ring  ring-offset-base-100 ring-offset-2">
-                
-                   <Image 
-                    className="rounded-full"
-                    height={50}
-                    width={50}
-                    src={user?.photoURL}
-                    alt="profile pic"
-                  />
-                
+                <Image
+                  className="rounded-full"
+                  height={50}
+                  width={50}
+                  src={user?.photoURL}
+                  alt="profile pic"
+                />
               </div>
             </div>
           </div>
