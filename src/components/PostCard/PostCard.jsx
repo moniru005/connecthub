@@ -16,6 +16,7 @@ const PostCard = () => {
 
   return (
     <div>
+      <div>test post</div>
       {postsData.map((post, index) => (
         <SinglePostCard key={index} post={post} />
       ))}
