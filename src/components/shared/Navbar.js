@@ -31,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar w-full z-50 px-3 bg-base-100 fixed">
+    <div className="navbar w-full z-50 px-3 bg-base-100 fixed max-w-7xl mx-auto">
       <div className="flex-1 gap-4 lg:gap-8 items-center">
         {/* Logo */}
         <div className="flex flex-col items-center">
@@ -61,7 +61,6 @@ const Navbar = () => {
             <FaRegMessage></FaRegMessage>
           </button>
         </div> */}
-
       </div>
 
       <div className="flex-none gap-2">
