@@ -31,74 +31,9 @@ const CreatePostForm = () => {
     const postDescription = e.target.postDescription.value;
     // console.log(postDescription);
 
-    const imageFile = { image: image };
-    // console.log(imageFile);
-    if (image) {
-      const response = await axiosPublic.post(hosting_api, imageFile, {
-        headers: {
-          "content-type": "multipart/form-data",
-        },
-      });
-
-      console.log(response.data, "successfully image hosted");
-     const post = {
-       userEmail: user?.email,
-       postDescription,
-       userImage: user?.photoURL,
-       album,
-       location,
-       hostedImage: response.data?.data?.display_url,
-       like: 0,
-       comment: 0,
-       share: 0,
-     };
-     // console.log(post);
-
-     const res = await axiosPublic.post(`/posts?email=${user?.email}`, post);
-     console.log(res.data);
-     if (res.data.insertedId) {
-       toast.success("Successfully post  added!");
-       e.target.reset();
-       setAlbum("");
-       setLocation("");
-       setHostedImage("");
-     } else {
-       toast.error("something went wrong!!");
-     }
-    }
-    else{
-          const post = {
-            userEmail: user?.email,
-            postDescription,
-            userImage: user?.photoURL,
-            album,
-            location,
-            hostedImage,
-            like: 0,
-            comment: 0,
-            share: 0,
-          };
-          // console.log(post);
-
-          const res = await axiosPublic.post(
-            `/posts?email=${user?.email}`,
-            post
-          );
-          console.log(res.data);
-          if (res.data.insertedId) {
-            toast.success("Successfully post  added!");
-            e.target.reset();
-            setAlbum("");
-            setLocation("");
-            setHostedImage("");
-          } else {
-            toast.error("something went wrong!!");
-          }
-    }
-
-
- 
-  };
+    const  res = await axiosPublic.post(`/posts?email=${user?.email}`,post)
+    console.log(res.data);
+  }
 
   return (
     <>
