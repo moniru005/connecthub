@@ -24,7 +24,7 @@ const SinglePostCard = ({ post }) => {
 
   console.log(post);
   return (
-    <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF]  w-full p-4  max-w-2xl shadow-xl">
+    <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF]  w-full p-4  max-w-4xl shadow-xl">
       {/* Post header */}
       <div className=" w-full flex justify-between items-center md:px-5  ">
         <div className="flex justify-around items-center gap-1">

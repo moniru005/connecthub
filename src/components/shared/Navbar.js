@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import { FaRegBell, FaRegEnvelope, FaRegHeart } from "react-icons/fa";
 import { FaRegMessage } from "react-icons/fa6";
@@ -10,14 +10,13 @@ import Swal from "sweetalert2";
 import Link from "next/link";
 
 const Navbar = () => {
-  const router = useRouter()
-  const {logout, user} = useUser()
+  const router = useRouter();
+  const { logout, user } = useUser();
 
   // console.log(user?.photoURL)
 
-  const handleLogout= ()=>{
-    logout()
-    .then(()=>{
+  const handleLogout = () => {
+    logout().then(() => {
       Swal.fire({
         position: "center",
         icon: "success",
@@ -25,19 +24,26 @@ const Navbar = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      
-      router.push("/login")
-      location.reload()
-    })
-  }
-  
+
+      router.push("/login");
+      location.reload();
+    });
+  };
+
   return (
-    <div className="navbar w-full z-50 px-3 bg-base-100 fixed">
+    <div className="navbar w-full z-50 px-3 bg-base-100 fixed max-w-7xl mx-auto">
       <div className="flex-1 gap-4 lg:gap-8 items-center">
         {/* Logo */}
         <div className="flex flex-col items-center">
-          <Link href="/"><Image className="h-10 w-10" src={logo} alt="" /></Link>
-          <a className="text-sm lg:text-xl text-[#69A2E9] font-bold uppercase">ConnectHub</a>
+          <Link href="/">
+            <Image className="h-10 w-10" src={logo} alt="" />
+          </Link>
+          <a
+            href="/"
+            className="text-sm lg:text-xl text-[#69A2E9] font-bold uppercase"
+          >
+            ConnectHub
+          </a>
         </div>
 
         {/* Left Icons */}
@@ -55,7 +61,6 @@ const Navbar = () => {
             <FaRegMessage></FaRegMessage>
           </button>
         </div> */}
-
       </div>
 
       <div className="flex-none gap-2">
@@ -74,18 +79,21 @@ const Navbar = () => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
-              {user?<Image
-                width={50}
-                height={50}
-                alt="Tailwind CSS Navbar component"
-                src={user?.photoURL}
-              />:
-              <Image
-                width={50}
-                height={50}
-                alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />}
+              {user ? (
+                <Image
+                  width={50}
+                  height={50}
+                  alt="Tailwind CSS Navbar component"
+                  src={user?.photoURL}
+                />
+              ) : (
+                <Image
+                  width={50}
+                  height={50}
+                  alt="Tailwind CSS Navbar component"
+                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                />
+              )}
             </div>
           </div>
           <ul
@@ -93,14 +101,14 @@ const Navbar = () => {
             className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link href={'/profile'} className="justify-between">
+              <Link href={"/profile"} className="justify-between">
                 Profile
                 <span className="badge">New</span>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <a>Settings</a>
-            </li>
+            </li> */}
             <li>
               <a onClick={handleLogout}>Logout</a>
             </li>
