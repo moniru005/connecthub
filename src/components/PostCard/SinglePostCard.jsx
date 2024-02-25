@@ -36,7 +36,7 @@ const SinglePostCard = ({post}) => {
                               }
                               <div>
                                     <h2 className=" font-semibold text-sm  "> {authorName} </h2>
-                                    {/* <p className="text-sm text-gray-400 "> July 26 2018, 01:03pm </p> */}
+                                    <p className="text-sm text-gray-400 "> {date} </p>
                               </div>
                         </div>
                         <div>
