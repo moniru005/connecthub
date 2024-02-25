@@ -23,7 +23,7 @@ const SinglePostCard = ({post}) => {
                                     authorImage?  <Image
                                     width={42}
                                     height={42}
-                                    className="rounded-full p-1  "
+                                    className="rounded-full p-1 w-12 h-12 "
                                     alt="Tailwind CSS Navbar component"
                                     src={authorImage}
                               />:<Image
@@ -70,7 +70,7 @@ const SinglePostCard = ({post}) => {
                                     height={"280"}
                                     width={"600"}
                                     alt="post-image"
-                                    src={postImage}
+                                    src={post.postImage}
                               />
                         </div>
                   </div>

@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image";
-import React from "react";
 import { FaRegBell, FaRegEnvelope, FaRegHeart } from "react-icons/fa";
 import { FaRegMessage } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
@@ -12,7 +11,6 @@ import Link from "next/link";
 
 const Navbar = () => {
   const router = useRouter()
-
   const {logout, user} = useUser()
 
   // console.log(user?.photoURL)
@@ -38,7 +36,7 @@ const Navbar = () => {
       <div className="flex-1 gap-4 lg:gap-8 items-center">
         {/* Logo */}
         <div className="flex flex-col items-center">
-          <Image className="h-10 w-10" src={logo} alt="" />
+          <Link href="/"><Image className="h-10 w-10" src={logo} alt="" /></Link>
           <a className="text-sm lg:text-xl text-[#69A2E9] font-bold uppercase">ConnectHub</a>
         </div>
 
