@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image";
-import React from "react";
 import { FaRegBell, FaRegEnvelope, FaRegHeart } from "react-icons/fa";
 import { FaRegMessage } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
@@ -12,7 +11,6 @@ import Link from "next/link";
 
 const Navbar = () => {
   const router = useRouter()
-
   const {logout, user} = useUser()
 
   // console.log(user?.photoURL)
