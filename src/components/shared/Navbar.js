@@ -36,7 +36,7 @@ const Navbar = () => {
       <div className="flex-1 gap-4 lg:gap-8 items-center">
         {/* Logo */}
         <div className="flex flex-col items-center">
-          <Image className="h-10 w-10" src={logo} alt="" />
+          <Link href="/"><Image className="h-10 w-10" src={logo} alt="" /></Link>
           <a className="text-sm lg:text-xl text-[#69A2E9] font-bold uppercase">ConnectHub</a>
         </div>
 

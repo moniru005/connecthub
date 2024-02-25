@@ -55,7 +55,7 @@ const SinglePostCard = ({post}) => {
                         {/* image */}
                         <div className="flex justify-center items-center w-full">
                               <Image
-                                    className="rounded-lg "
+                                    className="rounded-lg max-h-[200px] lg:max-h-[350px] w-[600px]"
                                     height={280}
                                     width={600}
                                     alt="post-image"
