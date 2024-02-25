@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image";
-import React from "react";
 import { FaRegBell, FaRegEnvelope, FaRegHeart } from "react-icons/fa";
 import { FaRegMessage } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
@@ -8,11 +7,12 @@ import logo from "@/assets/logo.png";
 import useUser from "../Hooks/useUser";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
+import useDBUser from "../Hooks/useDBUser";
 
 const Navbar = () => {
   const router = useRouter()
-
   const {logout, user} = useUser()
+  const userData = useDBUser();
 
   const handleLogout= ()=>{
     logout()
@@ -72,12 +72,15 @@ const Navbar = () => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
-              <Image
-                width={50}
+            {
+              userData.map(user => <Image key={user._id}
+                className="rounded-full"
                 height={50}
-                alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
+                width={50}
+                src={user.image}
+                alt="profile pic"
+              />)
+            }
             </div>
           </div>
           <ul

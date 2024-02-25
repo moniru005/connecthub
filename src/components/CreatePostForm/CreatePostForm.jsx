@@ -4,30 +4,17 @@ import { IoMdPhotos } from "react-icons/io";
 import { CiVideoOn } from "react-icons/ci";
 import Image from "next/image";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
-<<<<<<< HEAD
 import { useEffect, useState } from "react";
-
-const CreatePostForm = () => {
-  const [userData, setUserData] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3000/api/users")
-      .then((res) => res.json())
-      .then((data) => setUserData(data));
-  }, []);
-
-  console.log(userData);
-=======
 import useUser from "../Hooks/useUser";
+import useDBUser from "../Hooks/useDBUser";
+
 
 const CreatePostForm = () => {
-
+  const userData = useDBUser();
   const axiosPublic = useAxiosPublic();
 
   const {user} = useUser();
   // console.log(user?.photoURL);
-
-
 
   const handleSubmitPost = async (e)=> {
     e.preventDefault()
@@ -46,7 +33,6 @@ const CreatePostForm = () => {
     const  res = await axiosPublic.post(`/posts?email=${user?.email}`,post)
     console.log(res.data);
   }
->>>>>>> 655293ff9fde136db2a5cbfcd6c3fb4579a271a4
 
   return (
     <>
@@ -168,13 +154,15 @@ const CreatePostForm = () => {
             {/* </form> */}
             <div className="left-[5%] top-[15%] avatar absolute ">
               <div className="w-12  rounded-full ring  ring-offset-base-100 ring-offset-2">
-                <Image
-                  className="rounded-full"
-                  height={50}
-                  width={50}
-                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                  alt="profile pic"
-                />
+                {
+                  userData.map(user => <Image key={user._id}
+                    className="rounded-full"
+                    height={50}
+                    width={50}
+                    src={user.image}
+                    alt="profile pic"
+                  />)
+                }
               </div>
             </div>
           </div>

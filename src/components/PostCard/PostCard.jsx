@@ -6,22 +6,28 @@ import { FaRegCommentDots } from "react-icons/fa";
 import { PiShareFatThin } from "react-icons/pi";
 import postImage from "../../assets/crowd-concert.webp";
 import { useState } from "react";
+import useDBUser from "../Hooks/useDBUser";
+import useUser from "../Hooks/useUser";
 
 const PostCard = () => {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
+  const userData = useDBUser(); 
+
   return (
     <div>
       <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF]  w-full p-4  max-w-2xl shadow-xl">
         <div className=" w-full flex justify-between items-center md:px-5  ">
           <div className="flex justify-around items-center gap-1">
-            <Image
-              width={42}
-              height={42}
-              className="rounded-full p-1  "
-              alt="Tailwind CSS Navbar component"
-              src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-            />
+            {
+              userData.map(user => <Image key={user._id}
+                className="rounded-full w-12 h-12"
+                height={50}
+                width={50}
+                src={user.image}
+                alt="profile pic"
+              />)
+            }
             <div>
               <h2 className=" font-semibold text-sm  "> Dan Walker </h2>
               <p className="text-sm text-gray-400 "> July 26 2018, 01:03pm </p>
@@ -142,13 +148,15 @@ const PostCard = () => {
       <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF] w-full p-4 max-w-2xl shadow-xl">
         <div className=" w-full flex justify-between items-center md:px-4 ">
           <div className="flex justify-around items-center gap-1">
-            <Image
-              width={42}
-              height={42}
-              className="rounded-full p-1  "
-              alt="Tailwind CSS Navbar component"
-              src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-            />
+          {
+              userData.map(user => <Image key={user._id}
+                className="rounded-full w-12 h-12"
+                height={50}
+                width={50}
+                src={user.image}
+                alt="profile pic"
+              />)
+            }
             <div>
               <h2 className=" font-semibold text-sm  "> Dan Walker </h2>
               <p className="text-sm text-gray-400 "> July 26 2018, 01:03pm </p>
@@ -175,17 +183,10 @@ const PostCard = () => {
         </div>
         {/* post content */}
         <div className="mt-5">
-<<<<<<< HEAD
           <p className="text-gray-400 text-sm mb-4">
             Yesterday with @Karen Miller and @Marvin Stemperd at the
             #Rock&apos;n&apos;Rolla concert in LA. Was totally fantastic! People were
             really excited about this one!
-=======
-          <p className="text-gray-400 text-sm mb-4 md:px-5">
-            Yesterday with @Karen Miller and @Marvin Stemperd at the #Rock
-            nRolla concert in LA. Was totally fantastic! People were really
-            excited about this one!
->>>>>>> 655293ff9fde136db2a5cbfcd6c3fb4579a271a4
           </p>
           {/* image */}
           <div className="flex justify-center items-center w-full">
@@ -202,13 +203,15 @@ const PostCard = () => {
         <div className=" flex justify-between mt-5 items-center md:px-5">
           <div className="flex justify-between gap-2 items-center ">
             <div className="flex justify-around items-center">
-              <Image
-                width={32}
-                height={32}
-                className="rounded-full   "
-                alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
+            {
+              userData.map(user => <Image key={user._id}
+                className="rounded-full mx-auto p-1 text-center w-12 h-12 "
+                height={50}
+                width={50}
+                src={user.image}
+                alt="profile pic" priority={false}
+              />)
+            }
               <Image
                 width={32}
                 height={32}
