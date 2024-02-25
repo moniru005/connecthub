@@ -8,7 +8,7 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
 import axios from "axios";
 
 const api_key = "2ada4fdae6c29ea9b5ef757d310870c7";
-console.log(api_key);
+// console.log(api_key);
 const hosting_api = `https://api.imgbb.com/1/upload?key=${api_key}`;
 
 const RegisterForm = ({ show, setShow }) => {

@@ -5,29 +5,31 @@ import { CiVideoOn } from "react-icons/ci";
 import Image from "next/image";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useUser from "../Hooks/useUser";
+import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+
+const api_key = "2ada4fdae6c29ea9b5ef757d310870c7";
+// console.log(api_key);
+const hosting_api = `https://api.imgbb.com/1/upload?key=${api_key}`;
 
 const CreatePostForm = () => {
+  const [album, setAlbum] = useState("");
+  const [location, setLocation] = useState("");
+  const [image, setImage] = useState("");
+  const [hostedImage, setHostedImage] = useState("");
+
+  // console.log(image);
 
   const axiosPublic = useAxiosPublic();
 
-  const {user} = useUser();
+  const { user } = useUser();
   // console.log(user?.photoURL);
 
-
-
-  const handleSubmitPost = async (e)=> {
-    e.preventDefault()
-    console.log("clicked");
+  const handleSubmitPost = async (e) => {
+    e.preventDefault();
+    // console.log("clicked");
     const postDescription = e.target.postDescription.value;
-    console.log(postDescription);
-    const post = {
-      postDescription,
-      userImage: user?.photoURL,
-      like: 0,
-      comment: 0,
-      share: 0,
-    };
-    console.log(post);
+    // console.log(postDescription);
 
     const  res = await axiosPublic.post(`/posts?email=${user?.email}`,post)
     console.log(res.data);
@@ -56,12 +58,18 @@ const CreatePostForm = () => {
               <div>
                 <label className="input border border-violet-200 flex items-center gap-2 text-sm lg:text-base focus:outline-none">
                   Album Name:-
-                  <input type="text" className="grow" placeholder="Name" />
+                  <input
+                    onChange={(e) => setAlbum(e.target.value)}
+                    type="text"
+                    className="grow"
+                    placeholder="Name"
+                  />
                 </label>
 
                 <label className="input border flex items-center gap-2 my-2 text-sm lg:text-base focus:outline-none border-violet-200">
                   Location:-
                   <input
+                    onChange={(e) => setLocation(e.target.value)}
                     type="text"
                     className="grow"
                     placeholder="Album Location"
@@ -69,6 +77,7 @@ const CreatePostForm = () => {
                 </label>
 
                 <input
+                  onChange={(e) => setImage(e.target.files[0])}
                   type="file"
                   id="imageUpload"
                   accept="image/*"
@@ -76,13 +85,20 @@ const CreatePostForm = () => {
                 />
               </div>
 
-              <div className="modal-action">
-                <form method="dialog">
-                  {/* if there is a button in form, it will close the modal */}
-                  {/* <button type="button" class="btn btn-outline-primary">submit</button> */}
-                  <button className="btn  bg-indigo-500 text-white">
+              <div className="modal-action justify-between">
+                <div className="flex h-full justify-start items-center ">
+                  <button
+                   
+                    type="button"
+                    class="btn bg-indigo-500 text-white "
+                  >
                     Submit
                   </button>
+                </div>
+                <form method="dialog">
+                  {/* if there is a button in form, it will close the modal */}
+
+                  <button className="btn  bg-red-400 text-white">Close</button>
                 </form>
               </div>
             </div>
@@ -230,6 +246,8 @@ const CreatePostForm = () => {
             </button>
           </div>
         </form>
+
+        <Toaster position="top-center" reverseOrder={false} />
       </div>
     </>
   );
