@@ -33,6 +33,7 @@ const HomePage = () => {
         </div>
         <div className="w-full lg:w-6/12 mx-auto bg-[#F4F4F4] lg:order2 order-1">
           <CreatePostForm />
+          {/* Post Cards */}
           <PostCard />
         </div>
         <div className="w-full lg:w-3/12 bg-[#F4F4F4] lg:order-3 order-2">
