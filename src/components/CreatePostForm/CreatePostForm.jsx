@@ -244,13 +244,15 @@ const CreatePostForm = () => {
             {/* </form> */}
             <div className="left-[5%] top-[15%] avatar absolute ">
               <div className="w-12  rounded-full ring  ring-offset-base-100 ring-offset-2">
-                <Image
-                  className="rounded-full"
-                  height={50}
-                  width={50}
-                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                  alt="profile pic"
-                />
+                
+                   <Image 
+                    className="rounded-full"
+                    height={50}
+                    width={50}
+                    src={user?.photoURL}
+                    alt="profile pic"
+                  />
+                
               </div>
             </div>
           </div>

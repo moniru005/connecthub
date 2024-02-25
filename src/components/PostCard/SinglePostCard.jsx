@@ -19,13 +19,13 @@ const SinglePostCard = ({post}) => {
                               <Image
                                     width={42}
                                     height={42}
-                                    className="rounded-full p-1  "
+                                    className="rounded-full p-1 w-12 h-12 "
                                     alt="Tailwind CSS Navbar component"
-                                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                                    src={post.authorImage}
                               />
                               <div>
-                                    <h2 className=" font-semibold text-sm  "> Dan Walker </h2>
-                                    <p className="text-sm text-gray-400 "> July 26 2018, 01:03pm </p>
+                                    <h2 className=" font-semibold text-sm  "> {post.authorName} </h2>
+                                    <p className="text-sm text-gray-400 "> {post.date} </p>
                               </div>
                         </div>
                         <div>
@@ -50,9 +50,7 @@ const SinglePostCard = ({post}) => {
                   {/* post content */}
                   <div className="mt-5">
                         <p className="text-gray-400 text-sm mb-4 md:px-5">
-                              Yesterday with @Karen Miller and @Marvin Stemperd at the #Rock n
-                              Rolla concert in LA. Was totally fantastic! People were really
-                              excited about this one!
+                              {post.postDescription}
                         </p>
                         {/* image */}
                         <div className="flex justify-center items-center w-full">
@@ -61,7 +59,7 @@ const SinglePostCard = ({post}) => {
                                     height={280}
                                     width={600}
                                     alt="post-image"
-                                    src={postImage}
+                                    src={post.postImage}
                               />
                         </div>
                   </div>

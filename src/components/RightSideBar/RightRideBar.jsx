@@ -4,8 +4,11 @@ import { CiMenuKebab } from "react-icons/ci";
 import { IoAdd } from "react-icons/io5";
 import birthdaycake from "../../assets/birthdaycake.png";
 import { IoGift } from "react-icons/io5";
+import useUser from "../Hooks/useUser";
 
 const RightRideBar = () => {
+  const {user} = useUser();
+  
   return (
     <div className="w-full  ">
       <div className="bg-[#FFFFFF] w-full px-2 shadow-sm  rounded-lg">
@@ -33,12 +36,29 @@ const RightRideBar = () => {
         <div className="mt-3 p-3">
           <div className="flex  w-full  justify-start items-center  gap-2">
             <div className="border-2 rounded-full my-3 border-gray-400">
-              <Image
-                width={50}
+           <Image
+                className="rounded-full w-12 h-12"
                 height={50}
-                className="rounded-full p-1  "
-                alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                width={50}
+                src={user?.photoURL}
+                alt="profile pic"
+              />
+            
+            </div>
+            <div className="mb-2">
+              <p className="font-semibold">Name </p>
+              <p className="text-sm text-gray-400 "> 1 hour ago</p>
+            </div>
+          </div>
+          <hr />
+          <div className="flex  w-full  justify-start items-center  gap-2">
+            <div className="border-2 rounded-full my-3 border-gray-400">
+            <Image
+                className="rounded-full w-12 h-12"
+                height={50}
+                width={50}
+                src={user?.photoURL}
+                alt="profile pic"
               />
             </div>
             <div className="mb-2">
@@ -49,28 +69,12 @@ const RightRideBar = () => {
           <hr />
           <div className="flex  w-full  justify-start items-center  gap-2">
             <div className="border-2 rounded-full my-3 border-gray-400">
-              <Image
-                width={50}
+            <Image
+                className="rounded-full w-12 h-12"
                 height={50}
-                className="rounded-full p-1  "
-                alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
-            </div>
-            <div className="mb-2">
-              <p className="font-semibold">Name </p>
-              <p className="text-sm text-gray-400 "> 1 hour ago</p>
-            </div>
-          </div>
-          <hr />
-          <div className="flex  w-full  justify-start items-center  gap-2">
-            <div className="border-2 rounded-full my-3 border-gray-400">
-              <Image
                 width={50}
-                height={50}
-                className="rounded-full p-1  "
-                alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                src={user?.photoURL}
+                alt="profile pic"
               />
             </div>
             <div className="mb-2">
@@ -105,12 +109,13 @@ const RightRideBar = () => {
             </div>
             <div className="card-title w-full relative mx-auto  text-center">
               <Image
-                width={50}
+                className="rounded-full mx-auto p-1 text-center w-12 h-12 "
                 height={50}
-                className="rounded-full mx-auto p-1 text-center  "
-                alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                width={50}
+                src={user?.photoURL}
+                alt="profile pic"
               />
+            
               <p className="bg-[#344258]  text-sm rounded-full absolute right-[36%] top-0">
                 34
               </p>
