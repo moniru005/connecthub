@@ -1,8 +1,8 @@
 import ProfilePage from "@/app/(withLayout)/profile/page";
 import CommentForm from "@/components/CommentForm/CommentForm";
+
 import CreatePostForm from "@/components/CreatePostForm/CreatePostForm";
 import CreatePostFormV2 from "@/components/CreatePostForm/CreatePostFormV2";
-import useUser from "@/components/Hooks/useUser";
 import LeftSideBar from "@/components/LeftSideBar/LeftSideBar";
 import PostCard from "@/components/PostCard/PostCard";
 import RightRideBar from "@/components/RightSideBar/RightRideBar";
