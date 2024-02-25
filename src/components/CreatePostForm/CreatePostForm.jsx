@@ -224,7 +224,7 @@ const CreatePostForm = () => {
           <div className="relative ">
             {/* <form onSubmit={handleSubmitPost}> */}
             <textarea
-              className="description lg:pl-24 md:pl-24 lg:pt-12 md:pt-12 w-full bg-white pl-20  py-12 h-60 border border-gray-300 outline-none"
+              className="description lg:pl-24 md:pl-24 lg:pt-12 md:pt-12 w-full bg-white pl-20 pr-4  py-12 h-60 border border-gray-300 outline-none"
               spellCheck="false"
               name="postDescription"
               placeholder="Describe everything about this post here"

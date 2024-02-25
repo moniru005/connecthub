@@ -47,7 +47,7 @@ const Navbar = () => {
         </div>
 
         {/* Left Icons */}
-        <div className="text-xl">
+        {/* <div className="text-xl">
           <button className="btn-md text-xl">
             <FaRegHeart />
           </button>
@@ -60,7 +60,8 @@ const Navbar = () => {
           <button className="btn-md text-xl">
             <FaRegMessage></FaRegMessage>
           </button>
-        </div>
+        </div> */}
+
       </div>
 
       <div className="flex-none gap-2">
