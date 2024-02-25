@@ -21,3 +21,8 @@ export const POST = async(req,res)=>{
 
     }
 }
+
+
+export const GET = async (req, res)=>{
+    
+}
