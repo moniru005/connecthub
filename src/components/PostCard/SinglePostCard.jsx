@@ -29,6 +29,7 @@ const SinglePostCard = ({ post }) => {
     date,
     postImage,
   } = post;
+  console.log(post?.like)
 
   const handleLike = async (e) => {
     console.log(e);
@@ -46,7 +47,7 @@ const SinglePostCard = ({ post }) => {
     }
   };
 
-  console.log(post);
+  // console.log(post);
   return (
     <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF]  w-full p-4  max-w-4xl shadow-xl">
       {/* Post header */}
@@ -137,10 +138,10 @@ const SinglePostCard = ({ post }) => {
             />
           </div>
 
-          <div>
+          {/* <div>
             <h2 className="text-sm font-semibold ">Mily, Devid</h2>
             <p className="text-sm text-gray-400">and 23 more liked this</p>
-          </div>
+          </div> */}
         </div>
         <div className="flex justify-center items-center gap-4">
           <h2 className="flex justify-center items-center gap-1">
@@ -151,7 +152,9 @@ const SinglePostCard = ({ post }) => {
                 <FaRegHeart className="text-xl"></FaRegHeart>
               )}
             </button>{" "}
-            <span> 23 </span>
+            <span> {
+                post?.like ? post?.like.length+1 : 0
+              } </span>
           </h2>
           <h2 onClick={()=>setShowModal(true)} className="flex justify-center items-center gap-1">
             <FaRegCommentDots className="text-xl "></FaRegCommentDots>{" "}
@@ -161,8 +164,8 @@ const SinglePostCard = ({ post }) => {
       </div>
       {/* Comment Section*/}
       <div>
-        <button >show modal</button>
-        <CommentModal isOpen={showModal}></CommentModal>
+        {/* <button >show modal</button>
+        <CommentModal isOpen={showModal}></CommentModal> */}
         {/* <CommentForm></CommentForm> */}
         
       </div>

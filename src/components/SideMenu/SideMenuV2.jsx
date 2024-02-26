@@ -8,7 +8,7 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const SideMenuV2 = () => {
   const { user } = useUser();
-  console.log(user.email);
+  // console.log(user?.email);
   const [usersData, setUsersData] = useState([]);
 
   useEffect(() => {
