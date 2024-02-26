@@ -14,7 +14,7 @@ const HomeV2 = () => {
       <Navbar />
       <div className="w-full mx-auto pt-28 bg-[#F4F4F4] px-4 flex justify-center gap-4 flex-col lg:flex-row">
         <div className="w-full lg:w-4/12 lg:order-1 order-2 mb-8 lg:max-w-md">
-          <LeftSideBar />
+          <LeftSideBar className='fixed' />
         </div>
         <div className="w-full lg:w-8/12 mx-auto bg-[#F4F4F4] lg:order2 order-1">
           {/* <h2 className="text-4xl text-red-500">Home Page</h2> */}

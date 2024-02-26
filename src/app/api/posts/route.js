@@ -46,20 +46,30 @@ export const PUT = async (req, res) => {
     try {
         await client.connect()
         const body = await req.json();
-        const searchParams = request.nextUrl.searchParams
-        console.log(searchParams);
         console.log(body);
-        const id = searchParams.get('postId')
-        const options = { upsert: true };
-        const filter = { _id: new ObjectId(id) }
-        const updateDoc = {
-            $set: {
-                like: body.like || 0,
-                comment: body.comment || 0,
-                share: body.share || 0
+        // const id = searchParams.get('postId')
+        // const options = { upsert: true };
+        const filter = { _id: new ObjectId(body.postId) }
+        console.log(filter);
+        let updateDoc ={}
+        if (body.like) {
+             updateDoc = {
+                $push: {
+                     like: { author: body?.author, authorImage: body?.authorImage }
+                },
+            }
+
+        }
+
+        if(body.comment){
+             updateDoc = {
+                $push: {
+                     comment: { comment: body?.comment ,author:body?.authorName, authorImage:body?.authorImage},
+                },
             }
         }
-        const result = await useCollection.updateOne(filter, updateDoc, options)
+      
+        const result = await useCollection.updateMany(filter, updateDoc)
         return NextResponse.json(result)
     }
 

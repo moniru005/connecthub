@@ -1,7 +1,5 @@
-
 import { client } from "@/ConnectDB/connectToDatabase";
 import { NextResponse } from "next/server";
-
 
 export const POST = async (req, res) => {
   try {
@@ -26,16 +24,19 @@ export const POST = async (req, res) => {
     // await client.close();
   }
 };
-
 export const GET = async (req, res) => {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
 
     const userCollection = client.db("connectHub").collection("users");
+    await client.db("admin").command({ ping: 1 });
+    console.log(
+      "Pinged your deployment. You successfully connected to MongoDB!"
+    );
 
-    // await client.db("admin").command({ ping: 1 });
-    // console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    // const email = await req.json();
+    // const filter = { email: email };
 
     const result = await userCollection.find().toArray();
     return NextResponse.json(result);
@@ -43,39 +44,25 @@ export const GET = async (req, res) => {
   }
 };
 
-export const PATCH = async (req, res) => {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-
-    } finally {
-
-    }
-
-}
-
-
 export const PUT = async (req, res) => {
-    try {
-        await client.connect();
-        const userCollection = client.db("connectHub").collection("users");
-        const body = await req.json();
-        console.log(body);
-        const filter = { email : body.email }
-        const updatedDoc ={
-            $set:{
+  try {
+    await client.connect();
+    const userCollection = client.db("connectHub").collection("users");
+    const body = await req.json();
+    console.log(body);
+    const filter = { email: body.email };
+    const updatedDoc = {
+      $set: {
+        institute: body.institute,
+        maritalStatus: body.maritalStatus,
+        whereFrom: body.whereFrom,
+        livesIn: body.livesIn,
+      },
+    };
 
-                institute: body.institute,
-                maritalStatus: body.maritalStatus,
-                whereFrom: body.whereFrom,
-                livesIn: body.livesIn
-            }
-        }
-
-        const result = await userCollection.updateMany(filter,updatedDoc);
-        return NextResponse.json(result)
-    }
-    catch (error) {
-        return NextResponse.json(error)
-    }
-}
+    const result = await userCollection.updateMany(filter, updatedDoc);
+    return NextResponse.json(result);
+  } catch (error) {
+    return NextResponse.json(error);
+  }
+};
