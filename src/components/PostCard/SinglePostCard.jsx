@@ -10,12 +10,13 @@ import useUser from "../Hooks/useUser";
 import CommentForm from "../CommentForm/CommentForm";
 import CommentModal from "../Modal/CommentModal/CommentModal";
 import CommentView from "../CommentView/CommentView";
-import { format } from 'date-fns';
+import { format } from "date-fns";
+import toast, { Toaster } from "react-hot-toast";
 
 const SinglePostCard = ({ post }) => {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
 
   const axiosPublic = useAxiosPublic();
   const { user } = useUser();
@@ -46,6 +47,18 @@ const SinglePostCard = ({ post }) => {
     console.log(res.data);
     if (res.data.acknowledged) {
       setShow2(!show2);
+    }
+  };
+  // delete post
+  const handleDelete = async (id) => {
+    console.log(id);
+    const deleteData = { email: user?.email, postId: id };
+    const res = await axiosPublic.delete("/posts", { data: deleteData });
+    console.log(res.data);
+    if (res.data.deletedCount == 1) {
+      toast.success("your post deleted successfully");
+    } else {
+      toast.error("something went wrong");
     }
   };
 
@@ -97,7 +110,11 @@ const SinglePostCard = ({ post }) => {
                 <a>Bookmark</a>
               </li>
               <li>
-                <a>Delete</a>
+                {user.email == post?.authorEmail && (
+                  <button onClick={() => handleDelete(post?._id)}>
+                    Delete
+                  </button>
+                )}
               </li>
             </ul>
           </div>
@@ -160,26 +177,25 @@ const SinglePostCard = ({ post }) => {
                 <FaRegHeart className="text-xl"></FaRegHeart>
               )}
             </button>{" "}
-            <span> {
-                post?.like ? post?.like.length+1 : 0
-              } </span>
+            <span> {post?.like ? post?.like.length + 1 : 0} </span>
           </h2>
-          <h2 onClick={() => document.getElementById("my_modal_2").showModal()} className="flex justify-center items-center gap-1">
+          <h2
+            onClick={() => document.getElementById("my_modal_2").showModal()}
+            className="flex justify-center items-center gap-1"
+          >
             <FaRegCommentDots className="text-xl "></FaRegCommentDots>{" "}
             <span> 7 </span>
           </h2>
-         
         </div>
       </div>
       {/* Comment Section*/}
       <div>
-        
         <CommentModal isOpen={showModal}></CommentModal>
         {/* <CommentForm></CommentForm> */}
         {/* <CommentView></CommentView> */}
-        
       </div>
 
+      <Toaster></Toaster>
     </div>
   );
 };

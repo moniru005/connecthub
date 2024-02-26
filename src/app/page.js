@@ -6,20 +6,23 @@ import useUser from "@/components/Hooks/useUser";
 import Loader from "./loading";
 import HomeV2 from "./(withLayout)/homeV2/page";
 
+
 const LandingPage = () => {
 
-  const {user, loading} = useUser()
+  const { user, loading } = useUser()
 
-  if(loading && user){
+  if (loading && user) {
     return <Loader></Loader>
   }
   return (
-    <div style={{fontFamily: "work sans"}}>
-      {
-        // user? <HomePage></HomePage> : <Login></Login>
-        user? <HomeV2/>: <Login></Login>
-      }
-    </div>
+    <>
+      <div style={{ fontFamily: "work sans" }}>
+        {
+          // user? <HomePage></HomePage> : <Login></Login>
+          user ? <HomeV2 /> : <Login></Login>
+        }
+      </div>
+    </>
   );
 };
 

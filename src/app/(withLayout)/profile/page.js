@@ -1,6 +1,5 @@
 "use client";
 import Loader from "@/app/loading";
-import useAxiosPublic from "@/components/Hooks/useAxiosPublic";
 import useDBUser from "@/components/Hooks/useDBUser";
 import useUser from "@/components/Hooks/useUser";
 import ProfileForm from "@/components/ProfileForm/ProfileForm";
@@ -9,20 +8,26 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { FaEdit } from "react-icons/fa";
 
+
 const ProfilePage = () => {
   const { user, loading } = useUser();
   const [show, setShow] = useState(false);
   const [usersData, setUsersData] = useState('');
   const userData = useDBUser();
-  console.log(userData);
+
+
+
+
+
 
   useEffect(() => {
     const currentUser = userData?.filter((data) => data.email == user?.email);
-    console.log(currentUser);
+    // console.log(currentUser);
     setUsersData(currentUser)
-  }, [userData]);
 
-  console.log(usersData);
+  }, [userData, user?.email]);
+
+  // console.log(postsData);
 
 
 
@@ -41,7 +46,7 @@ const ProfilePage = () => {
                 <p className="text-gray-400">Like</p>
               </div>
               <div>
-                <p className="font-bold text-gray-700 text-xl">10</p>
+                <p className="font-bold text-gray-700 text-xl"> 23 </p>
                 <p className="text-gray-400">Posts</p>
               </div>
               <div>
