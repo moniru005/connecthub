@@ -24,6 +24,7 @@ const SideMenuV2 = () => {
 
   const currentUser = usersData?.filter((data) => data.email == user?.email);
   console.log(currentUser);
+  console.log(currentUser[0]?.institute);
 
   return (
     <div className="fixed md:w-full lg:w-[400px] ">
@@ -40,9 +41,7 @@ const SideMenuV2 = () => {
       <div className="flex justify-between px-4 py-2 rounded-t-lg bg-white items-center  ">
         <div>
           <h2 className="text-md font-bold">Studied at</h2>
-          <h2 className="text-gray-300">
-            {currentUser?.institute || "University name"}
-          </h2>
+          <h2 className="text-gray-300">{currentUser[0]?.institute}</h2>
         </div>
         <div>
           <FaUniversity />
@@ -52,7 +51,7 @@ const SideMenuV2 = () => {
       <div className="flex justify-between px-4 py-2 bg-white items-center ">
         <div>
           <h2 className="text-md font-bold">Marital Status</h2>
-          <h2 className="text-gray-300">Status</h2>
+          <h2 className="text-gray-300">{currentUser[0]?.maritalStatus}</h2>
         </div>
         <div>
           <FaHeart />
@@ -62,7 +61,7 @@ const SideMenuV2 = () => {
       <div className="flex justify-between px-4 py-2 bg-white items-center ">
         <div>
           <h2 className="text-md font-bold">From</h2>
-          <h2 className="text-gray-300">Location</h2>
+          <h2 className="text-gray-300">{currentUser[0]?.whereFrom}</h2>
         </div>
         <div>
           <FaEarthAmericas />
@@ -72,7 +71,7 @@ const SideMenuV2 = () => {
       <div className="flex justify-between px-4 py-2 bg-white items-center rounded-b-lg ">
         <div>
           <h2 className="text-md font-bold">Lives in</h2>
-          <h2 className="text-gray-300">Location</h2>
+          <h2 className="text-gray-300">{currentUser[0]?.livesIn}</h2>
         </div>
         <div>
           <CiLocationOn />
