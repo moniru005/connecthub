@@ -7,10 +7,13 @@ import { PiShareFatThin } from "react-icons/pi";
 import postImage from "../../assets/crowd-concert.webp";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useUser from "../Hooks/useUser";
+import CommentForm from "../CommentForm/CommentForm";
+import CommentModal from "../Modal/CommentModal/CommentModal";
 
 const SinglePostCard = ({ post }) => {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
+  const [showModal, setShowModal] = useState(false)
 
   const axiosPublic = useAxiosPublic();
   const { user } = useUser();
@@ -26,6 +29,7 @@ const SinglePostCard = ({ post }) => {
     date,
     postImage,
   } = post;
+  console.log(post?.like)
 
   const handleLike = async (e) => {
     console.log(e);
@@ -43,7 +47,7 @@ const SinglePostCard = ({ post }) => {
     }
   };
 
-  console.log(post);
+  // console.log(post);
   return (
     <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF]  w-full p-4  max-w-4xl shadow-xl">
       {/* Post header */}
@@ -134,10 +138,10 @@ const SinglePostCard = ({ post }) => {
             />
           </div>
 
-          <div>
+          {/* <div>
             <h2 className="text-sm font-semibold ">Mily, Devid</h2>
             <p className="text-sm text-gray-400">and 23 more liked this</p>
-          </div>
+          </div> */}
         </div>
         <div className="flex justify-center items-center gap-4">
           <h2 className="flex justify-center items-center gap-1">
@@ -148,39 +152,24 @@ const SinglePostCard = ({ post }) => {
                 <FaRegHeart className="text-xl"></FaRegHeart>
               )}
             </button>{" "}
-            <span> 23 </span>
+            <span> {
+                post?.like ? post?.like.length+1 : 0
+              } </span>
           </h2>
-          <h2 className="flex justify-center items-center gap-1">
+          <h2 onClick={()=>setShowModal(true)} className="flex justify-center items-center gap-1">
             <FaRegCommentDots className="text-xl "></FaRegCommentDots>{" "}
             <span> 7 </span>
           </h2>
-          <h2 className="flex justify-center items-center gap-1">
-            <div>
-              {/* Open the modal using document.getElementById('ID').showModal() method */}
-              <button
-                className=""
-                onClick={() =>
-                  document.getElementById("my_modal_3").showModal()
-                }
-              >
-                <PiShareFatThin className="text-xl text-violet-500"></PiShareFatThin>
-              </button>
-              <dialog id="my_modal_3" className="modal">
-                <div className="modal-box">
-                  <h3 className="font-bold text-lg">Successfully Shared!</h3>
-                  <p className="py-4">
-                    Press ESC key or click outside to close
-                  </p>
-                </div>
-                <form method="dialog" className="modal-backdrop">
-                  <button>close</button>
-                </form>
-              </dialog>
-            </div>
-            <span> 2 </span>
-          </h2>
         </div>
       </div>
+      {/* Comment Section*/}
+      <div>
+        {/* <button >show modal</button>
+        <CommentModal isOpen={showModal}></CommentModal> */}
+        {/* <CommentForm></CommentForm> */}
+        
+      </div>
+
     </div>
   );
 };

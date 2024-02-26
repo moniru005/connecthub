@@ -83,7 +83,7 @@ const CreatePostForm = () => {
         postImage: "",
       };
 
-      console.log(postDetails);
+      // console.log(postDetails);
 
       const result = await axiosPublic.post(
         `/posts?email=${user?.email}`,
@@ -298,9 +298,6 @@ const CreatePostForm = () => {
           </div>
           {/* Buttons */}
           <div className="buttons flex mb-4 mr-2">
-            <div className="btn border border-gray-300 p-1 px-4 font-semibold cursor-pointer text-gray-500 ml-auto ">
-              Cancel
-            </div>
             <button
               type="submit"
               className="btn p-1 px-4 font-semibold cursor-pointer text-white ml-2 bg-[#69A2E9]"

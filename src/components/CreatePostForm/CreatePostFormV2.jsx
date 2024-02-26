@@ -7,6 +7,7 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useUser from "../Hooks/useUser";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { ImAttachment } from "react-icons/im";
 
 const api_key = "2ada4fdae6c29ea9b5ef757d310870c7";
 // console.log(api_key);
@@ -106,7 +107,7 @@ const CreatePostFormV2 = () => {
 
   return (
     <>
-      <div className="editor rounded-lg mx-auto w-full flex flex-col text-gray-800 border border-gray-300 shadow-lg max-w-4xl">
+      <div className=" rounded-lg mx-auto w-full flex flex-col text-gray-800 border border-gray-300 shadow-lg max-w-4xl">
         {/* Tabs above textbox*/}
         <div className="tabs tabs-lifted">
           <a className="tab tab-active">
@@ -121,7 +122,7 @@ const CreatePostFormV2 = () => {
           <dialog id="my_modal_1" className="modal">
             <div className="modal-box">
               <h3 className="font-bold text-lg text-center mb-2">
-                Add Your AlbumV2
+                Add Your Album
               </h3>
 
               <div>
@@ -155,18 +156,10 @@ const CreatePostFormV2 = () => {
               </div>
 
               <div className="modal-action justify-between">
-                <div className="flex h-full justify-start items-center ">
-                  <button
-                    type="button"
-                    className="btn bg-indigo-500 text-white "
-                  >
-                    Submit
-                  </button>
-                </div>
                 <form method="dialog">
                   {/* if there is a button in form, it will close the modal */}
 
-                  <button className="btn  bg-red-400 text-white">Close</button>
+                  <button className="btn  bg-blue-400 text-white">Submit</button>
                 </form>
               </div>
             </div>
@@ -224,13 +217,13 @@ const CreatePostFormV2 = () => {
           <div className="relative ">
             {/* <form onSubmit={handleSubmitPost}> */}
             <textarea
-              className="description lg:pl-24 md:pl-24 lg:pt-12 md:pt-12 w-full bg-white pl-20 pr-4  py-12 h-60 border border-gray-300 outline-none"
+              className="description lg:pl-28 md:pl-28 lg:pt-4 md:pt-4  w-full bg-white pl-20 pr-10  md:py-6 border border-gray-300 outline-none"
               spellCheck="false"
               name="postDescription"
               placeholder="Describe everything about this post here"
             ></textarea>
             {/* </form> */}
-            <div className="left-[5%] top-[15%] avatar absolute ">
+            <div className="left-[5%] top-[10%] absolute ">
               <div className="w-12  rounded-full ring  ring-offset-base-100 ring-offset-2">
                 <Image
                   className="rounded-full"
@@ -243,43 +236,11 @@ const CreatePostFormV2 = () => {
             </div>
           </div>
           {/* Icons */}
-          <div className="icons flex text-gray-500 m-2">
+          <div className="icons flex text-gray-500">
+            {/* <ImAttachment /> */}
             <svg
               className="mr-2 cursor-pointer hover:text-gray-700 border rounded-full p-1 h-7"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-            </svg>
-            <svg
-              className="mr-2 cursor-pointer hover:text-gray-700 border rounded-full p-1 h-7"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <svg
-              className="mr-2 cursor-pointer hover:text-gray-700 border rounded-full p-1 h-7"
+              onClick={() => document.getElementById("my_modal_1").showModal()}
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -297,13 +258,10 @@ const CreatePostFormV2 = () => {
             </div>
           </div>
           {/* Buttons */}
-          <div className="buttons flex mb-4 mr-2">
-            <div className="btn border border-gray-300 p-1 px-4 font-semibold cursor-pointer text-gray-500 ml-auto ">
-              Cancel
-            </div>
+          <div className="text-right flex justify-end  mb-4 mr-2">
             <button
               type="submit"
-              className="btn p-1 px-4 font-semibold cursor-pointer text-white ml-2 bg-[#69A2E9]"
+              className="btn btn-sm p-1 px-4 font-semibold cursor-pointer text-white ml-2 bg-[#69A2E9]"
             >
               Post
             </button>
