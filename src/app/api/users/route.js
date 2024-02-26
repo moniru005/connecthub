@@ -1,5 +1,7 @@
+
 import { client } from "@/ConnectDB/connectToDatabase";
 import { NextResponse } from "next/server"
+
 
 export const POST = async (req, res) => {
 
@@ -42,8 +44,33 @@ export const GET = async (req, res) => {
 
 
     } finally {
-     
+
     }
 
 }
 
+
+export const PUT = async (req, res) => {
+    try {
+        await client.connect();
+        const userCollection = client.db("connectHub").collection("users");
+        const body = await req.json();
+        console.log(body);
+        const filter = { email : body.email }
+        const updatedDoc ={
+            $set:{
+
+                institute: body.institute,
+                maritalStatus: body.maritalStatus,
+                whereFrom: body.address,
+                livesIn: body.currentAddress
+            }
+        }
+
+        const result = await userCollection.updateMany(filter,updatedDoc);
+        return NextResponse.json(result)
+    }
+    catch (error) {
+        return NextResponse.json(error)
+    }
+}

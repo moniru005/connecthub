@@ -6,7 +6,7 @@ const PostCard = () => {
   const [postsData, setPostsData] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/posts')
+    fetch('https://connecthub-1.netlify.app/api/posts')
       .then(response => response.json())
       .then(data => setPostsData(data))
       .catch(error => console.error('Error fetching posts:', error));
@@ -16,7 +16,6 @@ const PostCard = () => {
 
   return (
     <div>
-      <div>test post</div>
       {postsData.map((post, index) => (
         <SinglePostCard key={index} post={post} />
       ))}
