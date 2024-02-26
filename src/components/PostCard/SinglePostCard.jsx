@@ -5,10 +5,15 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaRegCommentDots } from "react-icons/fa";
 import { PiShareFatThin } from "react-icons/pi";
 import postImage from "../../assets/crowd-concert.webp";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
+import useUser from "../Hooks/useUser";
 
 const SinglePostCard = ({ post }) => {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
+
+  const axiosPublic = useAxiosPublic();
+  const { user } = useUser();
 
   const {
     _id,
@@ -22,7 +27,23 @@ const SinglePostCard = ({ post }) => {
     postImage,
   } = post;
 
-  // console.log(post);
+  const handleLike = async (e) => {
+    console.log(e);
+    const likeDetails = {
+      postId: e,
+      like: true,
+      author: user?.displayName,
+      authorImage: user?.photoURL,
+    };
+
+    const res = await axiosPublic.put("/posts", likeDetails);
+    console.log(res.data);
+    if (res.data.acknowledged) {
+      setShow2(!show2);
+    }
+  };
+
+  console.log(post);
   return (
     <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF]  w-full p-4  max-w-4xl shadow-xl">
       {/* Post header */}
@@ -120,7 +141,7 @@ const SinglePostCard = ({ post }) => {
         </div>
         <div className="flex justify-center items-center gap-4">
           <h2 className="flex justify-center items-center gap-1">
-            <button onClick={() => setShow2(!show2)}>
+            <button onClick={() => handleLike(post._id)}>
               {show2 ? (
                 <FaRegHeart className="text-xl text-red-700"></FaRegHeart>
               ) : (
