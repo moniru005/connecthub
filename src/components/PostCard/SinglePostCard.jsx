@@ -7,6 +7,7 @@ import { PiShareFatThin } from "react-icons/pi";
 import postImage from "../../assets/crowd-concert.webp";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useUser from "../Hooks/useUser";
+import CommentForm from "../CommentForm/CommentForm";
 
 const SinglePostCard = ({ post }) => {
   const [show, setShow] = useState(false);
@@ -181,6 +182,7 @@ const SinglePostCard = ({ post }) => {
           </h2>
         </div>
       </div>
+      <CommentForm></CommentForm>
     </div>
   );
 };
