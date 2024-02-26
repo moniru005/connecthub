@@ -1,6 +1,8 @@
 "use client";
 import Loader from "@/app/loading";
+import useAxiosPublic from "@/components/Hooks/useAxiosPublic";
 import useUser from "@/components/Hooks/useUser";
+import ProfileForm from "@/components/ProfileForm/ProfileForm";
 import Navbar from "@/components/shared/Navbar";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -8,12 +10,9 @@ import { FaEdit } from "react-icons/fa";
 
 const ProfilePage = () => {
   const { user, loading } = useUser();
-  const [show, setShow] =useState(false);
+  const [show, setShow] = useState(false);
 
   // console.log(user);
-
-
-
 
   return (
     <>
@@ -24,7 +23,7 @@ const ProfilePage = () => {
             <div className="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
               <div>
                 <p className="font-bold text-gray-700 text-xl">22</p>
-                <p className="text-gray-400">Friends</p>
+                <p className="text-gray-400">Like</p>
               </div>
               <div>
                 <p className="font-bold text-gray-700 text-xl">10</p>
@@ -69,35 +68,9 @@ const ProfilePage = () => {
             </p>
             <p className="mt-2 text-gray-500">University of Computer Science</p>
           </div>
+
           {/* Form */}
-          {
-            show === true ? 
-            <div className="w-full mt-4 flex flex-col gap-y-2 justify-center items-center">
-            <form  className="w-10/12 flex flex-col gap-y-2 rounded">
-              {/* Name & Email */}
-              <div className="w-full flex flex-col lg:flex-row gap-2 ">
-                <input className="p-3 w-1/2 border border-slate-400 rounded-lg " type="text" name="" id="" placeholder="Name" defaultValue="" />
-                <input className="p-3 w-1/2 border border-slate-400 rounded-lg" type="text" name="" id="" placeholder="Email" defaultValue="" />
-              </div>
-              {/* Institute & Marital Status */}
-              <div className="w-full flex flex-col lg:flex-row gap-2 ">
-                <input className="p-3 w-1/2 border border-slate-400 rounded-lg" type="text" name="institute" id="" placeholder="Your College / University Name" defaultValue="" />
-                <input className="p-3 w-1/2 border border-slate-400 rounded-lg" type="text" name="mStatus" id="" placeholder="Marital Status" defaultValue="" />
-              </div>
-              {/* From & Lives In */}
-              <div className="w-full flex flex-col lg:flex-row gap-2 ">
-                <input className="p-3 w-1/2 border border-slate-400 rounded-lg" type="text" name="whereFrom" id="" placeholder="Where you from" defaultValue="" />
-                <input className="p-3 w-1/2 border border-slate-400 rounded-lg" type="text" name="livesIn" id="" placeholder="Currently Lives In" defaultValue="" />
-              </div>
-              {/* Submit */}
-              <div className="w-full flex flex-col lg:flex-row gap-2 justify-center items-center mt-4 ">
-                <input className="btn bg-blue-400 hover:bg-blue-500 text-gray-700 px-4 py-1 upper" type="button" value="Update" />
-              </div>
-            </form>
-          </div>
-          :
-          ""
-          }
+          <ProfileForm show={show}/>
 
           <div className="mt-12 flex flex-col justify-center">
             <p className="text-gray-600 text-center font-light lg:px-16">

@@ -5,7 +5,6 @@ import CreatePostForm from "@/components/CreatePostForm/CreatePostForm";
 import CreatePostFormV2 from "@/components/CreatePostForm/CreatePostFormV2";
 import LeftSideBar from "@/components/LeftSideBar/LeftSideBar";
 import PostCard from "@/components/PostCard/PostCard";
-import RightRideBar from "@/components/RightSideBar/RightRideBar";
 import Navbar from "@/components/shared/Navbar";
 import React from "react";
 
