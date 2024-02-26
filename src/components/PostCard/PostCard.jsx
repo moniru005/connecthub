@@ -1,15 +1,15 @@
-"use client"
-import { useEffect, useState } from 'react';
-import SinglePostCard from './SinglePostCard';
+"use client";
+import { useEffect, useState } from "react";
+import SinglePostCard from "./SinglePostCard";
 
 const PostCard = () => {
   const [postsData, setPostsData] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/posts')
-      .then(response => response.json())
-      .then(data => setPostsData(data))
-      .catch(error => console.error('Error fetching posts:', error));
+    fetch("http://localhost:3000/api/posts")
+      .then((response) => response.json())
+      .then((data) => setPostsData(data))
+      .catch((error) => console.error("Error fetching posts:", error));
   }, []);
 
   // console.log(postsData)
