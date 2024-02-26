@@ -42,8 +42,26 @@ export const GET = async (req, res) => {
 
 
     } finally {
-     
+
     }
 
 }
 
+
+export const PUT = async (req, res) => {
+    try {
+        await client.connect();
+        const userCollection = client.db("connectHub").collection("users");
+        const body = await req.json();
+        console.log(body);
+        const filter = { email : body.email }
+        const updatedDoc ={
+            $set:{
+                
+            }
+        }
+    }
+    catch (error) {
+        return NextResponse.json(error)
+    }
+}

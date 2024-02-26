@@ -51,19 +51,19 @@ export const PATCH = async (req, res) => {
         console.log(body);
         const id = searchParams.get('postId')
         const options = { upsert: true };
-        const filter = {_id : new ObjectId(id)}
+        const filter = { _id: new ObjectId(id) }
         const updateDoc = {
-            $set:{
+            $set: {
                 like: body.like || 0,
-                comment:body.comment || 0 ,
-                share:body.share || 0
+                comment: body.comment || 0,
+                share: body.share || 0
             }
         }
-        const result = await useCollection.updateOne(filter,updateDoc, options)
+        const result = await useCollection.updateOne(filter, updateDoc, options)
         return NextResponse.json(result)
     }
 
     catch (error) {
-        console.log(error);
+        return NextResponse.json(error);
     }
 }
