@@ -22,7 +22,7 @@ const SinglePostCard = ({ post }) => {
     postImage,
   } = post;
 
-  console.log(post);
+  // console.log(post);
   return (
     <div className="  rounded-lg mx-auto mt-8  mb-8 bg-[#FFFFFF]  w-full p-4  max-w-4xl shadow-xl">
       {/* Post header */}
@@ -132,31 +132,6 @@ const SinglePostCard = ({ post }) => {
           <h2 className="flex justify-center items-center gap-1">
             <FaRegCommentDots className="text-xl "></FaRegCommentDots>{" "}
             <span> 7 </span>
-          </h2>
-          <h2 className="flex justify-center items-center gap-1">
-            <div>
-              {/* Open the modal using document.getElementById('ID').showModal() method */}
-              <button
-                className=""
-                onClick={() =>
-                  document.getElementById("my_modal_3").showModal()
-                }
-              >
-                <PiShareFatThin className="text-xl text-violet-500"></PiShareFatThin>
-              </button>
-              <dialog id="my_modal_3" className="modal">
-                <div className="modal-box">
-                  <h3 className="font-bold text-lg">Successfully Shared!</h3>
-                  <p className="py-4">
-                    Press ESC key or click outside to close
-                  </p>
-                </div>
-                <form method="dialog" className="modal-backdrop">
-                  <button>close</button>
-                </form>
-              </dialog>
-            </div>
-            <span> 2 </span>
           </h2>
         </div>
       </div>
