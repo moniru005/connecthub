@@ -4,11 +4,9 @@ import { FaUniversity, FaHeart, FaRegBell } from "react-icons/fa";
 import { FaEarthAmericas } from "react-icons/fa6";
 import { CiLocationOn } from "react-icons/ci";
 import useUser from "../Hooks/useUser";
-import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const SideMenuV2 = () => {
   const { user } = useUser();
-  // console.log(user?.email);
   const [usersData, setUsersData] = useState([]);
 
   useEffect(() => {
@@ -18,13 +16,8 @@ const SideMenuV2 = () => {
       .catch((error) => console.error("Error fetching users:", error));
   }, []);
 
-  console.log(usersData);
-
-  // const [userData, setUserData] = useState([]);
 
   const currentUser = usersData?.filter((data) => data.email == user?.email);
-  console.log(currentUser);
-  console.log(currentUser[0]?.institute);
 
   return (
     <div className="fixed md:w-full lg:w-[400px] ">
