@@ -8,6 +8,9 @@ const nextConfig = {
             },
         ],
     },
+    withCORS: {
+        origin: 'https://connecthub-1.netlify.app',
+      },
 };
 
 export default nextConfig;
