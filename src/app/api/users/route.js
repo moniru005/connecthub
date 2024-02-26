@@ -60,8 +60,8 @@ export const PUT = async (req, res) => {
 
                 institute: body.institute,
                 maritalStatus: body.maritalStatus,
-                address: body.address,
-                currentAddress: body.currentAddress
+                whereFrom: body.address,
+                livesIn: body.currentAddress
             }
         }
 
