@@ -1,5 +1,7 @@
+
 import { client } from "@/ConnectDB/connectToDatabase";
 import { NextResponse } from "next/server";
+
 
 export const POST = async (req, res) => {
   try {
@@ -46,24 +48,34 @@ export const PATCH = async (req, res) => {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
 
-    const userCollection = client.db("connectHub").collection("users");
+    } finally {
 
-    const userId = req.params.userId;
-    const updatedUserData = req.body;
-
-    const result = await userCollection.updateOne(
-      { _id: userId },
-      { $set: updatedUserData }
-    );
-
-    if (result.modifiedCount === 1) {
-      res.status(200).json({ message: "User Data updated successfully" });
-    } else {
-      res.status(404).json({ message: "User not found or no changes made" });
     }
-  } catch {
-    res.status(500).json({ error: error.message });
-  } finally {
-    // await client.close();
-  }
-};
+
+}
+
+
+export const PUT = async (req, res) => {
+    try {
+        await client.connect();
+        const userCollection = client.db("connectHub").collection("users");
+        const body = await req.json();
+        console.log(body);
+        const filter = { email : body.email }
+        const updatedDoc ={
+            $set:{
+
+                institute: body.institute,
+                maritalStatus: body.maritalStatus,
+                whereFrom: body.address,
+                livesIn: body.currentAddress
+            }
+        }
+
+        const result = await userCollection.updateMany(filter,updatedDoc);
+        return NextResponse.json(result)
+    }
+    catch (error) {
+        return NextResponse.json(error)
+    }
+}
