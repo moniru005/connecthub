@@ -6,7 +6,7 @@ import { CiLocationOn } from "react-icons/ci";
 
 const SideMenuV2 = () => {
   return (
-    <div>
+    <div className="fixed md:w-full lg:w-[400px] ">
       {/* <div className="flex justify-between px-4 py-2 rounded-b-lg bg-white items-center ">
         <div>
           <h2 className="text-md font-bold">Followers</h2>
