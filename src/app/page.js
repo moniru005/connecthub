@@ -15,14 +15,13 @@ const LandingPage = () => {
     return <Loader></Loader>
   }
   return (
-    <>
-      <div style={{ fontFamily: "work sans" }}>
-        {
-          // user? <HomePage></HomePage> : <Login></Login>
-          user ? <HomeV2 /> : <Login></Login>
-        }
-      </div>
-    </>
+    <div style={{fontFamily: "work sans"}}>
+      {
+        // user? <HomePage></HomePage> : <Login></Login>
+        // user? <HomeV2/>: <Login></Login>
+        <HomeV2/>
+      }
+    </div>
   );
 };
 

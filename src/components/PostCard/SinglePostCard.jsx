@@ -31,11 +31,18 @@ const SinglePostCard = ({ post }) => {
     Location,
     date,
     postImage,
+    comment
   } = post;
-  // console.log(post?.like)
+  const commentData = {
+    _id,
+    authorName,
+    authorEmail,
+    comment
+  }
+  // console.log(comment)
 
   const handleLike = async (e) => {
-    console.log(e);
+    // console.log(e);
     const likeDetails = {
       postId: e,
       like: true,
@@ -177,20 +184,23 @@ const SinglePostCard = ({ post }) => {
                 <FaRegHeart className="text-xl"></FaRegHeart>
               )}
             </button>{" "}
-            <span> {post?.like ? post?.like.length + 1 : 0} </span>
+            <span> {
+                post?.like ? post?.like.length+1 : 0
+              } </span>
           </h2>
-          <h2
-            onClick={() => document.getElementById("my_modal_2").showModal()}
-            className="flex justify-center items-center gap-1"
-          >
+          <h2 onClick={() => document.getElementById("my_modal_2").showModal()} className="flex justify-center items-center gap-1">
             <FaRegCommentDots className="text-xl "></FaRegCommentDots>{" "}
-            <span> 7 </span>
+            <span> {
+              comment?.length !== 0 &&  comment?.length +1
+              } </span>
           </h2>
+         
         </div>
       </div>
       {/* Comment Section*/}
       <div>
-        <CommentModal isOpen={showModal}></CommentModal>
+        
+        <CommentModal commentData={commentData} isOpen={showModal}></CommentModal>
         {/* <CommentForm></CommentForm> */}
         {/* <CommentView></CommentView> */}
       </div>
