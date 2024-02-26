@@ -42,7 +42,7 @@ export const GET = async (req, res) => {
 
 // patch request for  update like comment and share request
 
-export const PATCH = async (req, res) => {
+export const PUT = async (req, res) => {
     try {
         await client.connect()
         const body = await req.json();

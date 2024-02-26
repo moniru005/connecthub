@@ -57,9 +57,16 @@ export const PUT = async (req, res) => {
         const filter = { email : body.email }
         const updatedDoc ={
             $set:{
-                
+
+                institute: body.institute,
+                maritalStatus: body.maritalStatus,
+                address: body.address,
+                currentAddress: body.currentAddress
             }
         }
+
+        const result = await userCollection.updateMany(filter,updatedDoc);
+        return NextResponse.json(result)
     }
     catch (error) {
         return NextResponse.json(error)
