@@ -8,10 +8,12 @@ import postImage from "../../assets/crowd-concert.webp";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useUser from "../Hooks/useUser";
 import CommentForm from "../CommentForm/CommentForm";
+import CommentModal from "../Modal/CommentModal/CommentModal";
 
 const SinglePostCard = ({ post }) => {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
+  const [showModal, setShowModal] = useState(false)
 
   const axiosPublic = useAxiosPublic();
   const { user } = useUser();
@@ -151,7 +153,7 @@ const SinglePostCard = ({ post }) => {
             </button>{" "}
             <span> 23 </span>
           </h2>
-          <h2 className="flex justify-center items-center gap-1">
+          <h2 onClick={()=>setShowModal(true)} className="flex justify-center items-center gap-1">
             <FaRegCommentDots className="text-xl "></FaRegCommentDots>{" "}
             <span> 7 </span>
           </h2>
@@ -182,7 +184,14 @@ const SinglePostCard = ({ post }) => {
           </h2>
         </div>
       </div>
-      <CommentForm></CommentForm>
+      {/* Comment Section*/}
+      <div>
+        <button >show modal</button>
+        <CommentModal isOpen={showModal}></CommentModal>
+        {/* <CommentForm></CommentForm> */}
+        
+      </div>
+
     </div>
   );
 };
