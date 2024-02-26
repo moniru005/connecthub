@@ -52,6 +52,8 @@ const RegisterForm = ({ show, setShow }) => {
             console.log(result.data);
 
             if (result.data.insertedId) {
+
+              router.push("/home");
               Swal.fire({
                 position: "center",
                 icon: "success",
@@ -59,7 +61,7 @@ const RegisterForm = ({ show, setShow }) => {
                 showConfirmButton: false,
                 timer: 1500,
               });
-              router.push("/home");
+              
             } else {
               Swal.fire({
                 position: "center",
