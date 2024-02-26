@@ -122,7 +122,7 @@ const CreatePostFormV2 = () => {
           <dialog id="my_modal_1" className="modal">
             <div className="modal-box">
               <h3 className="font-bold text-lg text-center mb-2">
-                Add Your AlbumV2
+                Add Your Album
               </h3>
 
               <div>
@@ -156,18 +156,10 @@ const CreatePostFormV2 = () => {
               </div>
 
               <div className="modal-action justify-between">
-                <div className="flex h-full justify-start items-center ">
-                  <button
-                    type="button"
-                    className="btn bg-indigo-500 text-white "
-                  >
-                    Submit
-                  </button>
-                </div>
                 <form method="dialog">
                   {/* if there is a button in form, it will close the modal */}
 
-                  <button className="btn  bg-red-400 text-white">Close</button>
+                  <button className="btn  bg-blue-400 text-white">Submit</button>
                 </form>
               </div>
             </div>
@@ -266,10 +258,7 @@ const CreatePostFormV2 = () => {
             </div>
           </div>
           {/* Buttons */}
-          <div className=" flex mb-4 mr-2">
-            <div className="btn btn-sm border border-gray-300 p-1 py-0 px-4 font-semibold cursor-pointer text-gray-500 ml-auto ">
-              Cancel
-            </div>
+          <div className="text-right flex justify-end  mb-4 mr-2">
             <button
               type="submit"
               className="btn btn-sm p-1 px-4 font-semibold cursor-pointer text-white ml-2 bg-[#69A2E9]"

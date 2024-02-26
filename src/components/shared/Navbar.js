@@ -64,14 +64,17 @@ const Navbar = () => {
       </div>
 
       <div className="flex-none gap-2">
-        <div className=" relative form-control hidden lg:flex flex-row items-center ">
+        {/* <div className=" relative form-control hidden lg:flex flex-row items-center ">
           <CiSearch className="absolute left-1 z-20 text-xl text-slate-400" />
           <input
             type="text"
             placeholder="Search"
             className="pl-8 relative z-10 input input-bordered rounded-full focus:outline-none w-24 md:w-auto"
           />
-        </div>
+        </div> */}
+        {
+          user?.displayName
+        }
         <div className="dropdown dropdown-end pr-2">
           <div
             tabIndex={0}
