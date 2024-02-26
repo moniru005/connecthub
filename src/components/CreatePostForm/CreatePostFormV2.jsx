@@ -223,16 +223,16 @@ const CreatePostFormV2 = () => {
           <div className="relative ">
             {/* <form onSubmit={handleSubmitPost}> */}
             <textarea
-              className="description lg:pl-28 md:pl-28 lg:pt-4 md:pt-4  w-full bg-white pl-20 pr-10  md:py-6 border border-gray-300 outline-none"
+              className="lg:text-base text-xs h-12 lg:h-24 md:h-24 description lg:pl-28 md:pl-28 lg:pt-4 md:pt-4 pt-4 w-full bg-white pl-16 pr-10  md:py-6 border border-gray-300 outline-none"
               spellCheck="false"
               name="postDescription"
               placeholder="Describe everything about this post here"
             ></textarea>
             {/* </form> */}
-            <div className="left-[5%] top-[10%] absolute ">
-              <div className="w-12  rounded-full ring  ring-offset-base-100 ring-offset-2">
+            <div className="left-[5%] lg:left-[5%] top-[15%] lg:top-[10%] absolute ">
+              <div className="lg:w-12 w-8  rounded-full ring  ring-offset-base-100 ring-offset-2">
                 <Image
-                  className="rounded-full"
+                  className="rounded-full lg:w-12 lg:h-12"
                   height={50}
                   width={50}
                   src={user?.photoURL}

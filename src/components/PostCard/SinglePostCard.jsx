@@ -10,6 +10,7 @@ import useUser from "../Hooks/useUser";
 import CommentForm from "../CommentForm/CommentForm";
 import CommentModal from "../Modal/CommentModal/CommentModal";
 import CommentView from "../CommentView/CommentView";
+import { format } from 'date-fns';
 
 const SinglePostCard = ({ post }) => {
   const [show, setShow] = useState(false);
@@ -30,7 +31,7 @@ const SinglePostCard = ({ post }) => {
     date,
     postImage,
   } = post;
-  console.log(post?.like)
+  // console.log(post?.like)
 
   const handleLike = async (e) => {
     console.log(e);
@@ -47,6 +48,12 @@ const SinglePostCard = ({ post }) => {
       setShow2(!show2);
     }
   };
+
+  // Date format
+  const inputDateString = post.date;
+  // console.log(inputDateString)
+  const inputDate = new Date(inputDateString);
+  const formattedDate = format(inputDate, "MMMM dd yyyy, hh:mmaaa");
 
   // console.log(post);
   return (
@@ -74,7 +81,7 @@ const SinglePostCard = ({ post }) => {
 
           <div>
             <h2 className=" font-semibold text-sm  "> {post?.authorName} </h2>
-            <p className="text-sm text-gray-400 "> {post?.date} </p>
+            <p className="text-sm text-gray-400 "> {formattedDate} </p>
           </div>
         </div>
         <div>
