@@ -31,7 +31,7 @@ const SinglePostCard = ({ post }) => {
     date,
     postImage,
   } = post;
-  console.log(post?.like)
+  // console.log(post?.like)
 
   const handleLike = async (e) => {
     console.log(e);
