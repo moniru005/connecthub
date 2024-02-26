@@ -7,6 +7,16 @@ import { CiLocationOn } from "react-icons/ci";
 const SideMenuV2 = () => {
   return (
     <div>
+      {/* <div className="flex justify-between px-4 py-2 rounded-b-lg bg-white items-center ">
+        <div>
+          <h2 className="text-md font-bold">Followers</h2>
+          <h2 className="text-gray-300">100 Followers</h2>
+        </div>
+        <div>
+          <FaRegBell />
+        </div>
+      </div> */}
+
       <div className="flex justify-between px-4 py-2 rounded-t-lg bg-white items-center  ">
         <div>
           <h2 className="text-md font-bold">Studied at</h2>
@@ -19,8 +29,8 @@ const SideMenuV2 = () => {
       <hr />
       <div className="flex justify-between px-4 py-2 bg-white items-center ">
         <div>
-          <h2 className="text-md font-bold">Married to</h2>
-          <h2 className="text-gray-300">Name of the partner</h2>
+          <h2 className="text-md font-bold">Marital Status</h2>
+          <h2 className="text-gray-300">Status</h2>
         </div>
         <div>
           <FaHeart />
@@ -37,7 +47,7 @@ const SideMenuV2 = () => {
         </div>
       </div>
       <hr />
-      <div className="flex justify-between px-4 py-2 bg-white items-center ">
+      <div className="flex justify-between px-4 py-2 bg-white items-center rounded-b-lg ">
         <div>
           <h2 className="text-md font-bold">Lives in</h2>
           <h2 className="text-gray-300">Location</h2>
@@ -46,17 +56,6 @@ const SideMenuV2 = () => {
           <CiLocationOn />
         </div>
       </div>
-      <hr />
-      <div className="flex justify-between px-4 py-2 rounded-b-lg bg-white items-center ">
-        <div>
-          <h2 className="text-md font-bold">Followers</h2>
-          <h2 className="text-gray-300">100 Followers</h2>
-        </div>
-        <div>
-          <FaRegBell />
-        </div>
-      </div>
-      <hr />
     </div>
   );
 };
