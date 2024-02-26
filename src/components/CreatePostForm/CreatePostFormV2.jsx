@@ -56,6 +56,9 @@ const CreatePostFormV2 = () => {
           Location: location,
           date: new Date(),
           postImage: res.data?.data?.display_url || "",
+          post: [],
+          comment: [],
+          share: [],
         };
 
         console.log(postDetails);
@@ -82,6 +85,9 @@ const CreatePostFormV2 = () => {
         Location: location,
         date: new Date(),
         postImage: "",
+        post: [],
+        comment: [],
+        share: [],
       };
 
       console.log(postDetails);

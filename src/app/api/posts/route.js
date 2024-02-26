@@ -7,11 +7,6 @@ const useCollection = client.db("connectHub").collection("posts")
 export const POST = async (req, res) => {
     try {
         await client.connect()
-
-
-
-        // await client.db("admin").command({ ping: 1 });
-        // console.log("Pinged your deployment. You successfully connected to MongoDB!");
         const body = await req.json();
         console.log(body);
 
@@ -29,6 +24,9 @@ export const POST = async (req, res) => {
 export const GET = async (req, res) => {
     try {
         await client.connect()
+
+        // const body = await req.json();
+        // console.log(body);
         const result = await useCollection.find().toArray();
         console.log(result)
         return NextResponse.json(result);
@@ -51,24 +49,24 @@ export const PUT = async (req, res) => {
         // const options = { upsert: true };
         const filter = { _id: new ObjectId(body.postId) }
         console.log(filter);
-        let updateDoc ={}
+        let updateDoc = {}
         if (body.like) {
-             updateDoc = {
+            updateDoc = {
                 $push: {
-                     like: { author: body?.author, authorImage: body?.authorImage }
+                    like: { author: body?.author, authorImage: body?.authorImage }
                 },
             }
 
         }
 
-        if(body.comment){
-             updateDoc = {
+        if (body.comment) {
+            updateDoc = {
                 $push: {
-                     comment: { comment: body?.comment ,author:body?.authorName, authorImage:body?.authorImage},
+                    comment: { comment: body?.comment, author: body?.authorName, authorImage: body?.authorImage },
                 },
             }
         }
-      
+
         const result = await useCollection.updateMany(filter, updateDoc)
         return NextResponse.json(result)
     }

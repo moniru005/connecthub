@@ -18,13 +18,13 @@ const SideMenuV2 = () => {
       .catch((error) => console.error("Error fetching users:", error));
   }, []);
 
-  console.log(usersData);
+  // console.log(usersData);
 
   // const [userData, setUserData] = useState([]);
 
   const currentUser = usersData?.filter((data) => data.email == user?.email);
-  console.log(currentUser);
-  console.log(currentUser[0]?.institute);
+  // console.log(currentUser);
+  // console.log(currentUser[0]?.institute);
 
   return (
     <div className="fixed md:w-full lg:w-[400px] ">
