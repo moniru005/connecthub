@@ -5,7 +5,7 @@ const CommentModal = ({isOpen, commentData}) => {
   return (
     <dialog id='my_modal_2' className='modal'>
       <div className='modal-box'>
-        <CommentForm></CommentForm>
+        <CommentForm commentData={commentData}></CommentForm>
         <CommentView commentData={commentData}></CommentView>
         <form method='dialog'>
           {/* if there is a button in form, it will close the modal */}

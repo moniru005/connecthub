@@ -46,11 +46,11 @@ export const PUT = async (req, res) => {
     try {
         await client.connect()
         const body = await req.json();
-        console.log(body);
+        console.log('from server',body);
         // const id = searchParams.get('postId')
         // const options = { upsert: true };
         const filter = { _id: new ObjectId(body.postId) }
-        console.log(filter);
+        // console.log(filter);
         let updateDoc ={}
         if (body.like) {
              updateDoc = {
@@ -64,7 +64,7 @@ export const PUT = async (req, res) => {
         if(body.comment){
              updateDoc = {
                 $push: {
-                     comment: { comment: body?.comment ,author:body?.authorName, authorImage:body?.authorImage},
+                     comment: { comment: body?.comment ,author:body?.author, authorImage:body?.authorImage},
                 },
             }
         }
