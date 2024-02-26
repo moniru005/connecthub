@@ -1,12 +1,7 @@
-import Cors from 'cors';
+
 import { client } from "@/ConnectDB/connectToDatabase";
 import { NextResponse } from "next/server"
 
-const cors = initMiddleware(
-    Cors({
-      origin: 'https://connecthub-1.netlify.app',
-    })
-  );
 
 export const POST = async (req, res) => {
 
