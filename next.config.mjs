@@ -8,14 +8,14 @@ const nextConfig = {
             },
         ],
     },
-    // async rewrites() {
-    //     return [
-    //       {
-    //         source: '/api/:path*',
-    //         destination: 'https://connecthub-1.netlify.app/:path*',
-    //       }
-    //     ]
-    //   },
+    async rewrites() {
+        return [
+          {
+            source: '/api/:path*',
+            destination: 'https://connecthub-1.netlify.app/:path*',
+          }
+        ]
+      },
 };
 
 export default nextConfig;
