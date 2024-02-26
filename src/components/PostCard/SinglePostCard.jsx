@@ -9,6 +9,7 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useUser from "../Hooks/useUser";
 import CommentForm from "../CommentForm/CommentForm";
 import CommentModal from "../Modal/CommentModal/CommentModal";
+import CommentView from "../CommentView/CommentView";
 
 const SinglePostCard = ({ post }) => {
   const [show, setShow] = useState(false);
@@ -156,17 +157,19 @@ const SinglePostCard = ({ post }) => {
                 post?.like ? post?.like.length+1 : 0
               } </span>
           </h2>
-          <h2 onClick={()=>setShowModal(true)} className="flex justify-center items-center gap-1">
+          <h2 onClick={() => document.getElementById("my_modal_2").showModal()} className="flex justify-center items-center gap-1">
             <FaRegCommentDots className="text-xl "></FaRegCommentDots>{" "}
             <span> 7 </span>
           </h2>
+         
         </div>
       </div>
       {/* Comment Section*/}
       <div>
-        {/* <button >show modal</button>
-        <CommentModal isOpen={showModal}></CommentModal> */}
+        
+        <CommentModal isOpen={showModal}></CommentModal>
         {/* <CommentForm></CommentForm> */}
+        {/* <CommentView></CommentView> */}
         
       </div>
 
