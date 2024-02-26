@@ -13,13 +13,16 @@ const LoginForm = ({ show, setShow }) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const data = {email,password}
+
+    
 
     await login(email, password)
       .then((res) => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "successfully login",
+          title: "Successfully Login",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -31,7 +34,7 @@ const LoginForm = ({ show, setShow }) => {
           icon: "warning",
           title: "Error while login",
           showConfirmButton: false,
-          timer: 1500,
+          timer: 3000,
         });
       });
   };

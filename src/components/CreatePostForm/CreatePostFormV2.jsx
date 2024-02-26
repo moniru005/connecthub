@@ -12,7 +12,7 @@ const api_key = "2ada4fdae6c29ea9b5ef757d310870c7";
 // console.log(api_key);
 const hosting_api = `https://api.imgbb.com/1/upload?key=${api_key}`;
 
-const CreatePostForm = () => {
+const CreatePostFormV2 = () => {
   const [album, setAlbum] = useState("");
   const [location, setLocation] = useState("");
   const [image, setImage] = useState("");
@@ -106,7 +106,7 @@ const CreatePostForm = () => {
 
   return (
     <>
-      <div className="editor rounded-lg mx-auto w-full flex flex-col text-gray-800 border border-gray-300 shadow-lg max-w-2xl">
+      <div className="editor rounded-lg mx-auto w-full flex flex-col text-gray-800 border border-gray-300 shadow-lg max-w-4xl">
         {/* Tabs above textbox*/}
         <div className="tabs tabs-lifted">
           <a className="tab tab-active">
@@ -121,7 +121,7 @@ const CreatePostForm = () => {
           <dialog id="my_modal_1" className="modal">
             <div className="modal-box">
               <h3 className="font-bold text-lg text-center mb-2">
-                Add Your Album
+                Add Your AlbumV2
               </h3>
 
               <div>
@@ -316,4 +316,4 @@ const CreatePostForm = () => {
   );
 };
 
-export default CreatePostForm;
+export default CreatePostFormV2;
