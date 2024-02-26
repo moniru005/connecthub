@@ -38,6 +38,7 @@ const SinglePostCard = ({ post }) => {
     authorEmail,
     comment
   }
+  // console.log(comment)
 
   const handleLike = async (e) => {
     // console.log(e);
@@ -172,7 +173,9 @@ const SinglePostCard = ({ post }) => {
           </h2>
           <h2 onClick={() => document.getElementById("my_modal_2").showModal()} className="flex justify-center items-center gap-1">
             <FaRegCommentDots className="text-xl "></FaRegCommentDots>{" "}
-            <span> 7 </span>
+            <span> {
+              comment?.length !== 0 &&  comment?.length +1
+              } </span>
           </h2>
          
         </div>
