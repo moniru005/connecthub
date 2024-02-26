@@ -29,11 +29,16 @@ const SinglePostCard = ({ post }) => {
     Location,
     date,
     postImage,
+    comment
   } = post;
-  console.log(post?.like)
+  const commentData = {
+    authorName,
+    authorEmail,
+    comment
+  }
 
   const handleLike = async (e) => {
-    console.log(e);
+    // console.log(e);
     const likeDetails = {
       postId: e,
       like: true,
@@ -167,7 +172,7 @@ const SinglePostCard = ({ post }) => {
       {/* Comment Section*/}
       <div>
         
-        <CommentModal isOpen={showModal}></CommentModal>
+        <CommentModal commentData={commentData} isOpen={showModal}></CommentModal>
         {/* <CommentForm></CommentForm> */}
         {/* <CommentView></CommentView> */}
         
