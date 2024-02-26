@@ -8,8 +8,13 @@ const nextConfig = {
             },
         ],
     },
-    withCORS: {
-        origin: 'https://connecthub-1.netlify.app',
+    async rewrites() {
+        return [
+          {
+            source: '/api/:path*',
+            destination: 'https://connecthub-1.netlify.app/:path*',
+          },
+        ]
       },
 };
 
