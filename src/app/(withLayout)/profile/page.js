@@ -12,6 +12,9 @@ const ProfilePage = () => {
 
   // console.log(user);
 
+
+
+
   return (
     <>
       <Navbar></Navbar>
@@ -70,7 +73,7 @@ const ProfilePage = () => {
           {
             show === true ? 
             <div className="w-full mt-4 flex flex-col gap-y-2 justify-center items-center">
-            <form className="w-10/12 flex flex-col gap-y-2 rounded">
+            <form  className="w-10/12 flex flex-col gap-y-2 rounded">
               {/* Name & Email */}
               <div className="w-full flex flex-col lg:flex-row gap-2 ">
                 <input className="p-3 w-1/2 border border-slate-400 rounded-lg " type="text" name="" id="" placeholder="Name" defaultValue="" />
