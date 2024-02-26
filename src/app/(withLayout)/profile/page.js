@@ -16,9 +16,9 @@ const ProfilePage = () => {
 
   return (
     <>
-      <div className='mx-auto border w-full'>
+      <div className='w-full px-3 max-w-7xl mx-auto'>
         <Navbar></Navbar>
-      </div>
+      
       <div className='p-16'>
         <div className='p-8 bg-white shadow mt-24'>
           <div className='grid grid-cols-1 md:grid-cols-3'>
@@ -83,6 +83,7 @@ const ProfilePage = () => {
             </p>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
