@@ -12,7 +12,7 @@ const PostCard = () => {
       .catch(error => console.error('Error fetching posts:', error));
   }, []);
 
-  console.log(postsData)
+  // console.log(postsData)
 
   return (
     <div>
