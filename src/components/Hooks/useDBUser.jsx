@@ -4,7 +4,7 @@ const useDBUser = () => {
     const [userData, setUserData] = useState([]);
 
   useEffect(() => {
-    fetch("https://connecthub-1.netlify.app/api/users")
+    fetch("http://localhost:3000/api/users")
       .then((res) => res.json())
       .then((data) => setUserData(data));
   }, []);

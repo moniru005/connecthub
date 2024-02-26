@@ -1,40 +1,22 @@
-import Modal from 'react-modal';
-import React from 'react';
-import CommentForm from '@/components/CommentForm/CommentForm';
+import CommentForm from "@/components/CommentForm/CommentForm";
+import CommentView from "@/components/CommentView/CommentView";
 
-const CommentModal = ({isOpen, onRequestClose, afterOpenModal, children}) => {
-  const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-    },
-  };
+const CommentModal = ({isOpen}) => {
 
-  return (
-    <Modal
-      isOpen={isOpen}
-      //     onAfterOpen={afterOpenModal}
-      //     onRequestClose={closeModal}
-      style={customStyles}
-      contentLabel='Example Modal'>
-      <h2>Hello</h2>
-      {/* <button onClick={closeModal}>close</button> */}
-      <div>I am a modal</div>
-      <form>
-        {/* <input /> */}
-        {/* <button>tab navigation</button>
-                  <button>stays</button>
-                  <button>inside</button>
-                  <button>the modal</button> */}
+      return(
+            <dialog id="my_modal_2" className="modal">
+            <div className="modal-box">
+                  <CommentForm></CommentForm>
+                  <CommentView></CommentView>
+                <form method="dialog">
+                  {/* if there is a button in form, it will close the modal */}
 
-        <CommentForm></CommentForm>
-      </form>
-    </Modal>
-  );
+                  <button className="btn  bg-red-400 text-white">Close</button>
+                </form>
+              </div>
+          </dialog>
+      )
+  
 };
 
 export default CommentModal;
