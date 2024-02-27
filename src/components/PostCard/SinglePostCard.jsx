@@ -90,7 +90,7 @@ const SinglePostCard = ({ post }) => {
             <Image
               width={42}
               height={42}
-              className="rounded-full p-1 w-12 h-12 "
+              className="rounded-full p-1 w-12 h-12"
               alt="Tailwind CSS Navbar component"
               src={authorImage}
             />
@@ -110,7 +110,7 @@ const SinglePostCard = ({ post }) => {
           </div>
         </div>
         <div>
-          <div className="dropdown dropdown-end">
+          {/* <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="m-1">
               <CiMenuKebab className="text-2xl text-gray-500 font-bold"></CiMenuKebab>
             </div>
@@ -118,9 +118,7 @@ const SinglePostCard = ({ post }) => {
               tabIndex={0}
               className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a>Bookmark</a>
-              </li>
+           
               <li>
                 {user.email == post?.authorEmail && (
                   <button onClick={() => handleDelete(post?._id)}>
@@ -129,7 +127,30 @@ const SinglePostCard = ({ post }) => {
                 )}
               </li>
             </ul>
-          </div>
+          </div> */}
+
+          {user.email == post?.authorEmail && (
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="m-1">
+                <CiMenuKebab className="text-2xl text-gray-500 font-bold"></CiMenuKebab>
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                {/* <li>
+                <a>Bookmark</a>
+              </li> */}
+                <li>
+                  {user.email == post?.authorEmail && (
+                    <button onClick={() => handleDelete(post?._id)}>
+                      Delete
+                    </button>
+                  )}
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
       {/* post content */}
