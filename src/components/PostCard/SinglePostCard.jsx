@@ -110,24 +110,7 @@ const SinglePostCard = ({ post }) => {
           </div>
         </div>
         <div>
-          {/* <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="m-1">
-              <CiMenuKebab className="text-2xl text-gray-500 font-bold"></CiMenuKebab>
-            </div>
-            <ul
-              tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-           
-              <li>
-                {user.email == post?.authorEmail && (
-                  <button onClick={() => handleDelete(post?._id)}>
-                    Delete
-                  </button>
-                )}
-              </li>
-            </ul>
-          </div> */}
+
 
           {user.email == post?.authorEmail && (
             <div className="dropdown dropdown-end">
@@ -178,7 +161,7 @@ const SinglePostCard = ({ post }) => {
                   .slice(0, 3)
                   .map((author, idx) => (
                     <Image
-                      key={author.author}
+                      key={idx}
                       width={32}
                       height={32}
                       className={`rounded-full h-8 w-8 ${

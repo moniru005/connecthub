@@ -1,10 +1,9 @@
-"use client";
+"use client"
 
 import { useEffect, useState } from "react";
-import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useUser from "../Hooks/useUser";
 
-const PostFetch = () => {
+const TotalLike = () => {
   const [postsData, setPostsData] = useState([]);
   const { user } = useUser();
   const [userPost, setUserPost] = useState([]);
@@ -15,20 +14,16 @@ const PostFetch = () => {
       .then((data) => setPostsData(data))
       .catch((error) => console.error("Error fetching posts:", error));
     if (postsData) {
-      const filter = postsData.filter(
-        (post) => post.authorEmail == user?.email
+      const filter = postsData.like?.filter(
+        (post) => post.author == user?.displayName
       );
-      
+    //   console.log(filter);
+
       setUserPost(filter);
     }
-  }, [postsData, user?.email]);
-  // console.log(postsData);
-  return (
-    <div>
-      {/* { postsData ? postsData.filter((post)=> post.authorEmail==user?.email).length: "no image"}  */}
-      {userPost?.length}
-    </div>
-  );
+  }, [postsData, user?.displayName]);
+//   console.log(postsData);
+  return <div>{userPost?.length}</div>;
 };
 
-export default PostFetch;
+export default TotalLike;
