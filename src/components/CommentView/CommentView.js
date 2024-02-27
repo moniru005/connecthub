@@ -8,7 +8,7 @@ const CommentView = ({commentData}) => {
   return (
     <div>
       {comment?.length !== 0
-        ? comment.map((singleComment, inx) => {
+        ? comment?.map((singleComment, inx) => {
 
           const {comment, author, authorImage} = singleComment
           

@@ -239,7 +239,7 @@ const CreatePostFormV2 = () => {
           <div className="icons flex text-gray-500">
             {/* <ImAttachment /> */}
             <svg
-              className="mr-2 cursor-pointer hover:text-gray-700 border rounded-full p-1 h-7"
+              className="ml-4 mr-2 cursor-pointer hover:text-gray-700 border rounded-full p-1 h-7"
               onClick={() => document.getElementById("my_modal_1").showModal()}
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -253,7 +253,9 @@ const CreatePostFormV2 = () => {
                 d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
               />
             </svg>
-            <div className="count ml-auto text-gray-400 text-xs font-semibold">
+
+
+            <div className="count ml-auto text-gray-400 text-xs font-semibold mr-4">
               0/300
             </div>
           </div>
