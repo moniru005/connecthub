@@ -56,6 +56,9 @@ const CreatePostFormV2 = () => {
           Location: location,
           date: new Date(),
           postImage: res.data?.data?.display_url || "",
+          post: [],
+          comment: [],
+          share: [],
         };
 
         console.log(postDetails);
@@ -82,6 +85,9 @@ const CreatePostFormV2 = () => {
         Location: location,
         date: new Date(),
         postImage: "",
+        post: [],
+        comment: [],
+        share: [],
       };
 
       console.log(postDetails);
@@ -159,7 +165,9 @@ const CreatePostFormV2 = () => {
                 <form method="dialog">
                   {/* if there is a button in form, it will close the modal */}
 
-                  <button className="btn  bg-blue-400 text-white">Submit</button>
+                  <button className="btn  bg-blue-400 text-white">
+                    Submit
+                  </button>
                 </form>
               </div>
             </div>
@@ -224,9 +232,9 @@ const CreatePostFormV2 = () => {
             ></textarea>
             {/* </form> */}
             <div className="left-[5%] lg:left-[5%] top-[15%] lg:top-[10%] absolute ">
-              <div className="lg:w-12 w-8  rounded-full ring  ring-offset-base-100 ring-offset-2">
+              <div className="lg:w-12 lg:h-12 w-[32px] h-[32px]  rounded-full ring  ring-offset-base-100 ring-offset-2">
                 <Image
-                  className="rounded-full lg:w-12 lg:h-12"
+                  className="rounded-full w-[32px] h-[32px] lg:w-12 lg:h-12"
                   height={50}
                   width={50}
                   src={user?.photoURL}

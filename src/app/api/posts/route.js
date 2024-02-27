@@ -3,17 +3,14 @@ import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
 const useCollection = client.db("connectHub").collection("posts")
+await client.connect()
+
 
 export const POST = async (req, res) => {
     try {
         await client.connect()
-
-
-
-        // await client.db("admin").command({ ping: 1 });
-        // console.log("Pinged your deployment. You successfully connected to MongoDB!");
         const body = await req.json();
-        console.log(body);
+        // console.log(body);
 
         const result = await useCollection.insertOne(body);
 
@@ -32,7 +29,6 @@ export const GET = async (req, res) => {
         const result = await useCollection.find().toArray();
         console.log(result)
         return NextResponse.json(result);
-
     }
     catch (err) {
         console.log(err)
@@ -53,22 +49,22 @@ export const PUT = async (req, res) => {
         // console.log(filter);
         let updateDoc ={}
         if (body.like) {
-             updateDoc = {
+            updateDoc = {
                 $push: {
-                     like: { author: body?.author, authorImage: body?.authorImage }
+                    like: { author: body?.author, authorImage: body?.authorImage }
                 },
             }
 
         }
 
-        if(body.comment){
-             updateDoc = {
+        if (body.comment) {
+            updateDoc = {
                 $push: {
                      comment: { comment: body?.comment ,author:body?.author, authorImage:body?.authorImage},
                 },
             }
         }
-      
+
         const result = await useCollection.updateMany(filter, updateDoc)
         return NextResponse.json(result)
     }
@@ -76,4 +72,23 @@ export const PUT = async (req, res) => {
     catch (error) {
         return NextResponse.json(error);
     }
+}
+
+
+export const DELETE = async (req, res) => {
+
+    try {
+        await client.connect()
+
+        const body = await req.json();
+        console.log(req, "aaa");
+        const filter = { _id: new ObjectId(body.postId) }
+        const result = await useCollection.deleteOne(filter)
+        return NextResponse.json(result)
+
+    }
+    catch (error) {
+        return NextResponse.json(error.message)
+    }
+
 }

@@ -23,6 +23,7 @@ const ProfileForm = ({ show }) => {
       maritalStatus: maritalStatus,
       whereFrom: whereFrom,
       livesIn: livesIn,
+  
     };
 
     // console.log(userData);

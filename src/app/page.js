@@ -6,11 +6,12 @@ import useUser from "@/components/Hooks/useUser";
 import Loader from "./loading";
 import HomeV2 from "./(withLayout)/homeV2/page";
 
+
 const LandingPage = () => {
 
-  const {user, loading} = useUser()
+  const { user, loading } = useUser()
 
-  if(loading && user){
+  if (loading && user) {
     return <Loader></Loader>
   }
   return (
