@@ -232,7 +232,7 @@ const CreatePostFormV2 = () => {
             ></textarea>
             {/* </form> */}
             <div className="left-[5%] lg:left-[5%] top-[15%] lg:top-[10%] absolute ">
-              <div className="lg:w-12 w-[32px] h-[32px]  rounded-full ring  ring-offset-base-100 ring-offset-2">
+              <div className="lg:w-12 lg:h-12 w-[32px] h-[32px]  rounded-full ring  ring-offset-base-100 ring-offset-2">
                 <Image
                   className="rounded-full w-[32px] h-[32px] lg:w-12 lg:h-12"
                   height={50}

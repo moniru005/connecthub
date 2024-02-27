@@ -14,9 +14,9 @@ const PostCard = () => {
       .then((response) => response.json())
       .then((data) => setPostsData(data))
       .catch((error) => console.error("Error fetching posts:", error));
+    
   }, []);
 
-  // console.log(postsData)
 
   return (
       <div>

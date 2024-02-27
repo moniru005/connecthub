@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import useUser from '../Hooks/useUser';
+import toast, { Toaster } from 'react-hot-toast';
 
 function CommentForm({commentData}) {
   const {user} = useUser();
@@ -33,7 +34,8 @@ function CommentForm({commentData}) {
 
       if (response.ok) {
         const result = await response.json();
-        console.log('Comment updated successfully:', result);
+        // console.log('Comment updated successfully:', result);
+        toast.success("comment added successfully")
       } else {
         console.error('Failed to update comment:', response.statusText);
       }
@@ -56,17 +58,18 @@ function CommentForm({commentData}) {
               required
             />
           </div>
-          <div className='w-full md:w-full flex border items-end  px-3'>
+          <div className='w-full md:w-full flex  items-end  px-3'>
             <div className='-mr-1 text-right'>
               <input
                 type='submit'
-                className='bg-indigo-500 text-white  font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1'
+                className='bg-indigo-500 text-white  font-medium py-1 px-4   rounded-lg tracking-wide mr-1'
                 value='Post Comment'
               />
             </div>
           </div>
         </div>
       </form>
+      <Toaster/>
     </div>
   );
 }

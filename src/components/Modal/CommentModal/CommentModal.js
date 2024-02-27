@@ -1,9 +1,9 @@
 import CommentForm from '@/components/CommentForm/CommentForm';
 import CommentView from '@/components/CommentView/CommentView';
 
-const CommentModal = ({isOpen, commentData}) => {
+const CommentModal = ({isOpen, commentData, _id}) => {
   return (
-    <dialog id='my_modal_2' className='modal'>
+    <dialog id={_id} className='modal'>
       <div className='modal-box'>
         <CommentForm commentData={commentData}></CommentForm>
         <CommentView commentData={commentData}></CommentView>

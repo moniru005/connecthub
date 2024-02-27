@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { CiMenuKebab } from "react-icons/ci";
 import { FaRegHeart } from "react-icons/fa";
@@ -21,6 +21,11 @@ const SinglePostCard = ({ post }) => {
   const axiosPublic = useAxiosPublic();
   const { user } = useUser();
 
+  // useEffect(() => {
+  //   const filter = post.like.filter((data) => data.author == user?.displayName);
+  //   console.log(filter);
+  // }, []);
+
   const {
     _id,
     authorName,
@@ -31,14 +36,14 @@ const SinglePostCard = ({ post }) => {
     Location,
     date,
     postImage,
-    comment
+    comment,
   } = post;
   const commentData = {
     _id,
     authorName,
     authorEmail,
-    comment
-  }
+    comment,
+  };
   // console.log(comment)
 
   const handleLike = async (e) => {
@@ -147,27 +152,22 @@ const SinglePostCard = ({ post }) => {
       <div className=" flex justify-between mt-5 items-center md:px-5 ">
         <div className="flex justify-between gap-2 items-center ">
           <div className="flex justify-around items-center">
-            <Image
-              width={32}
-              height={32}
-              className="rounded-full   "
-              alt="Tailwind CSS Navbar component"
-              src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-            />
-            <Image
-              width={32}
-              height={32}
-              className="rounded-full -ml-3  "
-              alt="Tailwind CSS Navbar component"
-              src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-            />
-            <Image
-              width={32}
-              height={32}
-              className="rounded-full -ml-3  "
-              alt="Tailwind CSS Navbar component"
-              src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-            />
+            {post?.like
+              ? post?.like
+                  .slice(0, 3)
+                  .map((author, idx) => (
+                    <Image
+                      key={author.author}
+                      width={32}
+                      height={32}
+                      className={`rounded-full h-8 w-8 ${
+                        idx == 0 ? "-ml-2" : " -ml-3"
+                      } `}
+                      alt="Tailwind CSS Navbar component"
+                      src={author?.authorImage}
+                    />
+                  ))
+              : ""}
           </div>
 
           {/* <div>
@@ -183,24 +183,30 @@ const SinglePostCard = ({ post }) => {
               ) : (
                 <FaRegHeart className="text-xl"></FaRegHeart>
               )}
+              {/* <FaRegHeart
+                className={`text-xl  ${post?.like?.filter(
+                  (data) => data.author == user?.displayName
+                ).length ? "text-red-700" : "" }`}
+              ></FaRegHeart> */}
             </button>{" "}
-            <span> {
-                post?.like ? post?.like.length+1 : 0
-              } </span>
+            <span> {post?.like ? post?.like.length : 0} </span>
           </h2>
-          <h2 onClick={() => document.getElementById("my_modal_2").showModal()} className="flex justify-center items-center gap-1">
+          <h2
+            onClick={() => document.getElementById(post._id).showModal()}
+            className="flex justify-center items-center gap-1"
+          >
             <FaRegCommentDots className="text-xl "></FaRegCommentDots>{" "}
-            <span> {
-              comment?.length !== 0 &&  comment?.length +1
-              } </span>
+            <span> {comment?.length !== 0 && comment?.length} </span>
           </h2>
-         
         </div>
       </div>
       {/* Comment Section*/}
       <div>
-        
-        <CommentModal commentData={commentData} isOpen={showModal}></CommentModal>
+        <CommentModal
+          _id={post?._id}
+          commentData={commentData}
+          isOpen={showModal}
+        ></CommentModal>
         {/* <CommentForm></CommentForm> */}
         {/* <CommentView></CommentView> */}
       </div>
