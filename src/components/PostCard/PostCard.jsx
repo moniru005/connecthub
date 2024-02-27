@@ -10,7 +10,7 @@ const PostCard = () => {
 
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/posts")
+    fetch("https://connecthub-1.netlify.app/api/posts")
       .then((response) => response.json())
       .then((data) => setPostsData(data))
       .catch((error) => console.error("Error fetching posts:", error));
