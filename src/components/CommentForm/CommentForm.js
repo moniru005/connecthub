@@ -19,7 +19,7 @@ function CommentForm({commentData}) {
     console.log('hurreer',commentDesc, commentAuthName, commentAuthPhoto);
 
     try {
-      const response = await fetch('-https://connecthub-1.netlify.app/api/posts', {
+      const response = await fetch('https://connecthub-1.netlify.app/api/posts', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

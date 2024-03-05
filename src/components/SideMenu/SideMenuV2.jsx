@@ -10,7 +10,7 @@ const SideMenuV2 = () => {
   const [usersData, setUsersData] = useState([]);
 
   useEffect(() => {
-    fetch("-https://connecthub-1.netlify.app/api/users")
+    fetch("https://connecthub-1.netlify.app/api/users")
       .then((response) => response.json())
       .then((data) => setUsersData(data))
       .catch((error) => console.error("Error fetching users:", error));
