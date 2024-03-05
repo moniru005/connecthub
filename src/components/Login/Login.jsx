@@ -5,9 +5,8 @@ import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import logoWhite from "@/assets/logo-white.png";
 import useUser from "../Hooks/useUser";
-import { useRouter } from "next/navigation";
 import Loader from "@/app/loading";
-import HomePage from "@/app/(withLayout)/home/page";
+import HomeV2 from "@/app/(withLayout)/home2/page";
 
 const Login = () => {
   const { user, loading } = useUser()
@@ -18,7 +17,7 @@ const Login = () => {
     return <Loader></Loader>
   }
   if (user) {
-    return <HomePage></HomePage>
+    return <HomeV2/>
   }
 
   return (

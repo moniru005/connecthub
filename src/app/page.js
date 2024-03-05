@@ -4,7 +4,7 @@ import HomePage from "./(withLayout)/home/page";
 import Login from "@/components/Login/Login";
 import useUser from "@/components/Hooks/useUser";
 import Loader from "./loading";
-import HomeV2 from "./(withLayout)/homeV2/page";
+import HomeV2 from "./(withLayout)/home2/page";
 
 
 const LandingPage = () => {
