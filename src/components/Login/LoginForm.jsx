@@ -13,7 +13,6 @@ const LoginForm = ({ show, setShow }) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const data = { email, password };
 
     await login(email, password)
       .then((res) => {
@@ -24,7 +23,7 @@ const LoginForm = ({ show, setShow }) => {
           showConfirmButton: false,
           timer: 1500,
         });
-        router.push("/homeV2");
+        router.push("/home2");
       })
       .catch((err) => {
         Swal.fire({

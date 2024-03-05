@@ -12,7 +12,7 @@ CONNECT HUB is a social media platform designed to connect people and foster mea
 - Md. Monir Uddin
 ## Project Links
 
-Live Link: https://connecthub-1.netlify.app
+Live Link: -https://connecthub-1.netlify.app
 
 Project Link: https://github.com/moniru005/connecthub
 ## Technologies Used
@@ -38,7 +38,7 @@ To get started with CONNECT HUB locally, follow these steps:
 2. Install the required dependencies using npm install.
 3. Set up your MongoDB database and configure the connection in the project.
 4. Start the development server using npm run dev.
-5. Access CONNECT HUB in your browser at https://connecthub-1.netlify.app.
+5. Access CONNECT HUB in your browser at -https://connecthub-1.netlify.app.
 
 ## Project Features
 
