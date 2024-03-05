@@ -6,7 +6,7 @@ const error = () => {
     return (
         <div className='h-screen w-screen'>
             <h2 className='text-4xl text-center'>404 Error Page</h2>
-            <Link href="/homeV2">
+            <Link href="/home2">
             <button className='btn btn-sm bg-[#69A2E9] text-white'>
                 Go Home
             </button>
