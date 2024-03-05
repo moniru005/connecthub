@@ -12,7 +12,7 @@ const nextConfig = {
         return [
           {
             source: '/api/:path*',
-            destination: '-https://connecthub-1.netlify.app/:path*',
+            destination: 'https://connecthub-1.netlify.app/:path*',
           }
         ]
       },
