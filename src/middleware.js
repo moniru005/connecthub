@@ -5,7 +5,7 @@ export default async function middleware(req, res) {
 //   const sessionCookie = true
   // console.log(((req.url.includes('/home') || (req.url.includes('/profile')))))
 
-  if (!sessionCookie && ((req.url.includes('/home') || (req.url.includes('/profile'))))) {
+  if (!sessionCookie && ((req.url.includes('/home2') || (req.url.includes('/profile'))))) {
     return NextResponse.redirect(new URL('/login', req.url));
   }
   

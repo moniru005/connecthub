@@ -52,7 +52,7 @@ const RegisterForm = ({ show, setShow }) => {
             console.log(result.data);
 
             if (result.data.insertedId) {
-              router.push("/homeV2");
+              router.push("/home2");
               Swal.fire({
                 position: "center",
                 icon: "success",
