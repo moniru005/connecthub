@@ -13,6 +13,7 @@ const LoginForm = ({ show, setShow }) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const data = { email, password };
 
     await login(email, password)
       .then((res) => {
