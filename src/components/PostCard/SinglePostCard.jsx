@@ -112,7 +112,7 @@ const SinglePostCard = ({ post }) => {
         <div>
 
 
-          {user.email == post?.authorEmail && (
+          {user?.email == post?.authorEmail && (
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="m-1">
                 <CiMenuKebab className="text-2xl text-gray-500 font-bold"></CiMenuKebab>

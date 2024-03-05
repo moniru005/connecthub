@@ -1,13 +1,11 @@
 "use client";
 import { PiNotePencil } from "react-icons/pi";
 import { IoMdPhotos } from "react-icons/io";
-import { CiVideoOn } from "react-icons/ci";
 import Image from "next/image";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useUser from "../Hooks/useUser";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { ImAttachment } from "react-icons/im";
 
 const api_key = "2ada4fdae6c29ea9b5ef757d310870c7";
 // console.log(api_key);
